@@ -1,0 +1,261 @@
+import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
+import { d as useRouterState, L as Link } from "../_libs/tanstack__react-router.mjs";
+import { P as Phone, X, o as Menu, F as Facebook, L as Linkedin, I as Instagram, p as Twitter, M as MapPin, j as Mail } from "../_libs/lucide-react.mjs";
+const logo = "/assets/logo-DMsuHzci.png";
+const NAV = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
+  { to: "/projects", label: "Projects" },
+  { to: "/investors", label: "Investors" },
+  { to: "/properties", label: "Properties" },
+  { to: "/insights", label: "Insights" },
+  { to: "/contact", label: "Contact" }
+];
+function Header() {
+  const [scrolled, setScrolled] = reactExports.useState(false);
+  const [open, setOpen] = reactExports.useState(false);
+  const { location } = useRouterState();
+  reactExports.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  reactExports.useEffect(() => setOpen(false), [location.pathname]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "header",
+    {
+      className: `sticky top-0 z-50 w-full bg-background/90 backdrop-blur-md border-b border-border transition-all ${scrolled ? "py-2 shadow-sm" : "py-4"}`,
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container-x flex items-center justify-between gap-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "flex items-center gap-3 shrink-0", "aria-label": "Adedara Ola & Co. home", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "img",
+            {
+              src: logo,
+              alt: "Adedara Ola & Co.",
+              className: `transition-all ${scrolled ? "h-9" : "h-11"} w-auto`,
+              width: 180,
+              height: 48
+            }
+          ) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden lg:flex items-center gap-7", "aria-label": "Primary", children: NAV.map((item) => {
+            const active = item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
+            return /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Link,
+              {
+                to: item.to,
+                className: `text-sm font-medium transition-colors hover:text-primary ${active ? "text-primary" : "text-secondary"}`,
+                children: item.label
+              },
+              item.to
+            );
+          }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "a",
+              {
+                href: "tel:+2347038088610",
+                className: "hidden xl:inline-flex items-center gap-2 text-sm text-secondary hover:text-primary",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4" }),
+                  "+234 703 808 8610"
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Link,
+              {
+                to: "/contact",
+                className: "hidden sm:inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-all",
+                children: "Book Consultation"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                className: "lg:hidden inline-flex items-center justify-center rounded-md p-2 text-secondary hover:bg-muted",
+                onClick: () => setOpen((v) => !v),
+                "aria-label": "Toggle menu",
+                "aria-expanded": open,
+                children: open ? /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-5 w-5" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Menu, { className: "h-5 w-5" })
+              }
+            )
+          ] })
+        ] }),
+        open && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lg:hidden border-t border-border bg-background", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "container-x py-4 flex flex-col gap-1", "aria-label": "Mobile", children: [
+          NAV.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: item.to,
+              className: "rounded-md px-3 py-2.5 text-sm font-medium text-secondary hover:bg-muted hover:text-primary",
+              children: item.label
+            },
+            item.to
+          )),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: "/contact",
+              className: "mt-2 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground",
+              children: "Book Consultation"
+            }
+          )
+        ] }) })
+      ]
+    }
+  );
+}
+function Footer() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "bg-[var(--navy)] text-white/80 mt-24", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container-x py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-5", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white inline-block rounded-md p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logo, alt: "Adedara Ola & Co.", className: "h-12 w-auto" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-sm leading-relaxed max-w-sm", children: "Adedara Ola & Co. — Real estate developers, project planners, property consultants and managers building sustainable value across Nigeria." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "form",
+          {
+            className: "mt-6 flex gap-2 max-w-sm",
+            onSubmit: (e) => e.preventDefault(),
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  type: "email",
+                  required: true,
+                  placeholder: "Your email",
+                  className: "flex-1 rounded-md bg-white/10 border border-white/15 px-3 py-2.5 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-primary"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90", children: "Subscribe" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 flex gap-3", children: [Facebook, Linkedin, Instagram, Twitter].map((Icon, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "a",
+          {
+            href: "#",
+            "aria-label": "Social link",
+            className: "h-9 w-9 rounded-md border border-white/15 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "h-4 w-4" })
+          },
+          i
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        FooterCol,
+        {
+          title: "Company",
+          links: [
+            { to: "/about", label: "About Us" },
+            { to: "/projects", label: "Projects" },
+            { to: "/insights", label: "Insights" },
+            { to: "/contact", label: "Contact" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        FooterCol,
+        {
+          title: "Services",
+          links: [
+            { to: "/services", label: "Project Planning" },
+            { to: "/services", label: "Construction" },
+            { to: "/services", label: "Refurbishment" },
+            { to: "/services", label: "Property Maintenance" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-display font-semibold text-white mb-4 text-sm uppercase tracking-wider", children: "Contact" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "space-y-3 text-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { className: "h-4 w-4 mt-0.5 shrink-0 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "42, Ola Street, Itire, Surulere, Lagos, Nigeria" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4 mt-0.5 shrink-0 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "tel:+2347038088610", className: "block hover:text-white", children: "+234 703 808 8610" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "tel:+2348035204149", className: "block hover:text-white", children: "+234 803 520 4149" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "h-4 w-4 mt-0.5 shrink-0 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "mailto:adedaraolaproperties@gmail.com", className: "block hover:text-white break-all", children: "adedaraolaproperties@gmail.com" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "mailto:olaadedarabrand@gmail.com", className: "block hover:text-white break-all", children: "olaadedarabrand@gmail.com" })
+            ] })
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container-x py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/60", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+        "© ",
+        (/* @__PURE__ */ new Date()).getFullYear(),
+        " Adedara Ola & Co. All rights reserved."
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "hover:text-white", children: "Privacy Policy" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "hover:text-white", children: "Terms & Conditions" })
+      ] })
+    ] }) })
+  ] });
+}
+function FooterCol({ title, links }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-display font-semibold text-white mb-4 text-sm uppercase tracking-wider", children: title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2.5 text-sm", children: links.map((l, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: l.to, className: "hover:text-white transition-colors", children: l.label }) }, i)) })
+  ] });
+}
+function SiteLayout({ children }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1", children }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+  ] });
+}
+function PageHero({
+  eyebrow,
+  title,
+  subtitle
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-gradient-to-b from-[var(--surface)] to-background border-b border-border", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container-x py-16 md:py-24 max-w-4xl", children: [
+    eyebrow && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "eyebrow", children: eyebrow }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "mt-3 text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05]", children: title }),
+    subtitle && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed", children: subtitle })
+  ] }) });
+}
+function CTASection() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-[var(--navy)] text-white", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container-x py-16 md:py-20 grid md:grid-cols-[1.4fr,1fr] gap-10 items-center", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "eyebrow text-primary", children: "Let's Build Together" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-3 text-white text-3xl md:text-4xl font-bold leading-tight", children: "Ready to Bring Your Real Estate Vision to Life?" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-white/70 text-lg max-w-xl", children: "Speak with our team today and discover how we can help you plan, develop, manage, and maximize your property investments." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row md:flex-col gap-3 md:items-stretch", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "a",
+        {
+          href: "/contact",
+          className: "rounded-md bg-primary px-6 py-3.5 text-center font-semibold text-primary-foreground hover:bg-primary/90",
+          children: "Book Consultation"
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "a",
+        {
+          href: "/contact",
+          className: "rounded-md border border-white/20 px-6 py-3.5 text-center font-semibold text-white hover:bg-white/10",
+          children: "Contact Us"
+        }
+      )
+    ] })
+  ] }) });
+}
+export {
+  CTASection as C,
+  PageHero as P,
+  SiteLayout as S
+};
