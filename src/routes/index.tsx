@@ -138,7 +138,7 @@ function Hero() {
           </div>
 
           <ul className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3">
-            {["Project Planning", "Construction Advisory", "Building Approvals", "Property Maintenance", "Real Estate Economics"].map((t) => (
+            {["Project Planning", "Construction Advisory", "Building Approvals", "Property Maintenance", "Real Estate Economics", "Property Sale/Rental"].map((t) => (
               <li key={t} className="flex items-center gap-2 text-sm text-secondary">
                 <CheckCircle2 className="h-4 w-4 text-primary shrink-0" /> {t}
               </li>
@@ -153,11 +153,11 @@ function Hero() {
           </div>
 
           <div className="hidden sm:block absolute -left-6 top-12 bg-white rounded-xl shadow-[var(--shadow-card)] p-4 w-44 border border-border">
-            <p className="text-3xl font-bold text-navy font-display">120<span className="text-primary">+</span></p>
+            <p className="text-3xl font-bold text-navy font-display">20<span className="text-primary">+</span></p>
             <p className="text-xs text-muted-foreground mt-1">Projects Completed</p>
           </div>
           <div className="hidden sm:block absolute -right-4 top-1/3 bg-white rounded-xl shadow-[var(--shadow-card)] p-4 w-44 border border-border">
-            <p className="text-3xl font-bold text-navy font-display">15<span className="text-primary">+</span></p>
+            <p className="text-3xl font-bold text-navy font-display">8<span className="text-primary">+</span></p>
             <p className="text-xs text-muted-foreground mt-1">Years of Experience</p>
           </div>
           <div className="hidden sm:block absolute -left-4 bottom-12 bg-white rounded-xl shadow-[var(--shadow-card)] p-4 w-48 border border-border">

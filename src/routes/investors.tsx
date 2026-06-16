@@ -59,7 +59,7 @@ function InvestorsPage() {
               { icon: Compass, t: "Development Planning", d: "Phased capital deployment and de-risked execution." },
               { icon: Shield, t: "Risk Mitigation", d: "Title, regulatory and execution risk identified and managed." },
               { icon: BarChart3, t: "Market Intelligence", d: "Submarket data and demand modelling guide every decision." },
-              { icon: Target, t: "Value Creation", d: "Active asset management to grow NOI year over year." },
+              { icon: Target, t: "Value Creation", d: "Active asset management to grow ROI year over year." },
               { icon: Award, t: "Aligned Incentives", d: "We co-invest where appropriate to align outcomes." },
             ].map(({ icon: Icon, t, d }) => (
               <div key={t} className="rounded-xl bg-white border border-border p-6">
