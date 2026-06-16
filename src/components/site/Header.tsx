@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const NAV = [
@@ -34,7 +34,7 @@ export function Header() {
         scrolled ? "py-2 shadow-sm" : "py-4"
       }`}
     >
-      <div className="container-x flex items-center justify-between gap-6">
+      <div className="container-x flex items-center gap-8">
         <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Adedara Ola & Co. home">
           <img
             src={logo}
@@ -45,7 +45,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-8" aria-label="Primary">
           {NAV.map((item) => {
             const active =
               item.to === "/"
@@ -66,16 +66,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href="tel:+2347038088610"
-            className="hidden xl:inline-flex items-center gap-2 text-sm text-secondary hover:text-primary"
-          >
-            <Phone className="h-4 w-4" />
-            +234 703 808 8610
-          </a>
           <Link
             to="/contact"
-            className="hidden sm:inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-all"
+            className="hidden sm:inline-flex shrink-0 whitespace-nowrap items-center justify-center rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-all"
           >
             Book Consultation
           </Link>
