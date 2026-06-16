@@ -1,7 +1,20 @@
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { createRootRouteWithContext, useRouter, Link, Outlet, HeadContent, Scripts, createFileRoute, lazyRouteComponent, createRouter } from "@tanstack/react-router";
-import { jsx, jsxs } from "react/jsx-runtime";
-import { useEffect } from "react";
+import { Q as QueryClient } from "../_libs/tanstack__query-core.mjs";
+import { Q as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
+import { c as createRouter, a as createRootRouteWithContext, u as useRouter, L as Link, O as Outlet, H as HeadContent, S as Scripts, b as createFileRoute, l as lazyRouteComponent } from "../_libs/tanstack__react-router.mjs";
+import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
+import "../_libs/tanstack__router-core.mjs";
+import "../_libs/tanstack__history.mjs";
+import "../_libs/cookie-es.mjs";
+import "../_libs/seroval.mjs";
+import "../_libs/seroval-plugins.mjs";
+import "node:stream/web";
+import "node:stream";
+import "../_libs/react-dom.mjs";
+import "util";
+import "crypto";
+import "async_hooks";
+import "stream";
+import "../_libs/isbot.mjs";
 const appCss = "/assets/styles-DAvyjxD9.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
@@ -20,11 +33,11 @@ function reportLovableError(error, context = {}) {
   );
 }
 function NotFoundComponent() {
-  return /* @__PURE__ */ jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxs("div", { className: "max-w-md text-center", children: [
-    /* @__PURE__ */ jsx("h1", { className: "text-7xl font-bold text-foreground", children: "404" }),
-    /* @__PURE__ */ jsx("h2", { className: "mt-4 text-xl font-semibold text-foreground", children: "Page not found" }),
-    /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-muted-foreground", children: "The page you're looking for doesn't exist or has been moved." }),
-    /* @__PURE__ */ jsx("div", { className: "mt-6", children: /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-7xl font-bold text-foreground", children: "404" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-4 text-xl font-semibold text-foreground", children: "Page not found" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-sm text-muted-foreground", children: "The page you're looking for doesn't exist or has been moved." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       Link,
       {
         to: "/",
@@ -37,14 +50,14 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }) {
   console.error(error);
   const router2 = useRouter();
-  useEffect(() => {
+  reactExports.useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
-  return /* @__PURE__ */ jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxs("div", { className: "max-w-md text-center", children: [
-    /* @__PURE__ */ jsx("h1", { className: "text-xl font-semibold tracking-tight text-foreground", children: "This page didn't load" }),
-    /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-muted-foreground", children: "Something went wrong on our end. You can try refreshing or head back home." }),
-    /* @__PURE__ */ jsxs("div", { className: "mt-6 flex flex-wrap justify-center gap-2", children: [
-      /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-xl font-semibold tracking-tight text-foreground", children: "This page didn't load" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-sm text-muted-foreground", children: "Something went wrong on our end. You can try refreshing or head back home." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-6 flex flex-wrap justify-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           onClick: () => {
@@ -55,7 +68,7 @@ function ErrorComponent({ error, reset }) {
           children: "Try again"
         }
       ),
-      /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         "a",
         {
           href: "/",
@@ -81,6 +94,7 @@ const Route$a = createRootRouteWithContext()({
       { name: "twitter:card", content: "summary_large_image" }
     ],
     links: [
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" },
@@ -96,17 +110,17 @@ const Route$a = createRootRouteWithContext()({
   errorComponent: ErrorComponent
 });
 function RootShell({ children }) {
-  return /* @__PURE__ */ jsxs("html", { lang: "en", children: [
-    /* @__PURE__ */ jsx("head", { children: /* @__PURE__ */ jsx(HeadContent, {}) }),
-    /* @__PURE__ */ jsxs("body", { children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("html", { lang: "en", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("head", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeadContent, {}) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("body", { children: [
       children,
-      /* @__PURE__ */ jsx(Scripts, {})
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Scripts, {})
     ] })
   ] });
 }
 function RootComponent() {
   const { queryClient } = Route$a.useRouteContext();
-  return /* @__PURE__ */ jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsx(Outlet, {}) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
 const BASE_URL = "";
 const Route$9 = createFileRoute("/sitemap.xml")({
@@ -141,7 +155,7 @@ ${urls.join("\n")}
     }
   }
 });
-const $$splitComponentImporter$8 = () => import("./services-bnvtNaZa.js");
+const $$splitComponentImporter$8 = () => import("./services-bnvtNaZa.mjs");
 const Route$8 = createFileRoute("/services")({
   head: () => ({
     meta: [{
@@ -166,7 +180,7 @@ const Route$8 = createFileRoute("/services")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$8, "component")
 });
-const $$splitComponentImporter$7 = () => import("./properties-DWoAeGI0.js");
+const $$splitComponentImporter$7 = () => import("./properties-DWoAeGI0.mjs");
 const Route$7 = createFileRoute("/properties")({
   head: () => ({
     meta: [{
@@ -191,7 +205,7 @@ const Route$7 = createFileRoute("/properties")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$7, "component")
 });
-const $$splitComponentImporter$6 = () => import("./projects-DrnUHw1F.js");
+const $$splitComponentImporter$6 = () => import("./projects-DrnUHw1F.mjs");
 const Route$6 = createFileRoute("/projects")({
   head: () => ({
     meta: [{
@@ -216,7 +230,7 @@ const Route$6 = createFileRoute("/projects")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$6, "component")
 });
-const $$splitComponentImporter$5 = () => import("./investors-C69Bx0_O.js");
+const $$splitComponentImporter$5 = () => import("./investors-C69Bx0_O.mjs");
 const Route$5 = createFileRoute("/investors")({
   head: () => ({
     meta: [{
@@ -241,7 +255,7 @@ const Route$5 = createFileRoute("/investors")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-const $$splitComponentImporter$4 = () => import("./insights-Diuf7D5f.js");
+const $$splitComponentImporter$4 = () => import("./insights-Diuf7D5f.mjs");
 const Route$4 = createFileRoute("/insights")({
   head: () => ({
     meta: [{
@@ -266,7 +280,7 @@ const Route$4 = createFileRoute("/insights")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-const $$splitComponentImporter$3 = () => import("./contact-GBvXXQDi.js");
+const $$splitComponentImporter$3 = () => import("./contact-GBvXXQDi.mjs");
 const Route$3 = createFileRoute("/contact")({
   head: () => ({
     meta: [{
@@ -291,7 +305,7 @@ const Route$3 = createFileRoute("/contact")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./about-BWducoPO.js");
+const $$splitComponentImporter$2 = () => import("./about-BWducoPO.mjs");
 const Route$2 = createFileRoute("/about")({
   head: () => ({
     meta: [{
@@ -316,7 +330,7 @@ const Route$2 = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./index-Djp4Ogof.js");
+const $$splitComponentImporter$1 = () => import("./index-Djp4Ogof.mjs");
 const Route$1 = createFileRoute("/")({
   head: () => ({
     meta: [{
@@ -358,7 +372,7 @@ const Route$1 = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./_slug-D9MSOq0o.js");
+const $$splitComponentImporter = () => import("../_slug-CHJ7Pc2u.mjs");
 const Route = createFileRoute("/properties/$slug")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });

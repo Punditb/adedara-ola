@@ -2,7 +2,7 @@ import { j as jsxRuntimeExports } from "./_libs/react.mjs";
 import { L as Link } from "./_libs/tanstack__react-router.mjs";
 import { S as SiteLayout, C as CTASection } from "./_ssr/Layout-Bv09aVvL.mjs";
 import { m as mixedImg, c as commercialImg, r as residentialImg } from "./_ssr/project-mixed-Coi09pei.mjs";
-import { R as Route } from "./_ssr/router-CEPNR7Bd.mjs";
+import { R as Route } from "./_ssr/router-D2s5GZvj.mjs";
 import { n as ArrowLeft, M as MapPin, b as Bed, c as Bath, d as Maximize2, l as CircleCheck } from "./_libs/lucide-react.mjs";
 import "./_libs/tanstack__router-core.mjs";
 import "./_libs/tanstack__history.mjs";
