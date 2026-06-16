@@ -1,1 +1,0 @@
-import{c as t}from"./Layout-D1M5hL6F.js";const e=[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"m12 5 7 7-7 7",key:"xquz4c"}]],c=t("arrow-right",e);const o=[["path",{d:"M8 2v4",key:"1cmpym"}],["path",{d:"M16 2v4",key:"4m81vk"}],["rect",{width:"18",height:"18",x:"3",y:"4",rx:"2",key:"1hopcy"}],["path",{d:"M3 10h18",key:"8toen8"}]],h=t("calendar",o);export{c as A,h as C};
