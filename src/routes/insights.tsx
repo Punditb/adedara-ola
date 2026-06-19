@@ -42,7 +42,7 @@ function InsightsPage() {
       <PageHero
         eyebrow="Insights"
         title="Thought Leadership for Real Estate Decision-Makers"
-        subtitle="Market analysis, development insight and investment strategy from our practice."
+        subtitle="Discover profitable real estate trends, market insights, and essential updates from industry leaders and policy makers."
       />
 
       <section className="container-x py-12 md:py-16">

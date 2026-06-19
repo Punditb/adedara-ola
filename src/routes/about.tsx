@@ -32,17 +32,23 @@ function AboutPage() {
         </div>
         <div>
           <span className="eyebrow">Our Story</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold">Turning Vision Into Valuable Real Estate Assets</h2>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold">Turning Vision Into Valuable Real Estate Assets</h2> <br></br>
+          <p className="mb-6 text-muted-foreground leading-relaxed">
+            At ADEDARA OLA & CO, we are driven by a passion for growing real estate
+            capital by guiding clients toward the right projects - projects that deliver
+            impressive returns on investment while contributing meaningfully to
+            sustainable rural-urban development.
+          </p>
           <p className="mt-5 text-muted-foreground leading-relaxed">
             From our founding, we have approached every project with one belief: real
-            estate is more than buildings — it is sustainable value, carefully planned
+            estate is more than buildings - it is sustainable value, carefully planned
             and patiently built. We work alongside investors, developers, institutions
             and government agencies to plan, develop, manage and optimize real estate
             portfolios across Nigeria.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Our practice integrates conceptualization and planning, positioning and
-            design, and development and management — a continuous chain of expertise
+            Our practice integrates CONCEPTUALIZATION & PLANNING, POSITIONING &
+            DESIGN, and DEVELOPMENT & MANAGEMENT - a continuous chain of expertise
             that protects investment value at every stage.
           </p>
         </div>
@@ -51,10 +57,10 @@ function AboutPage() {
       <section className="bg-[var(--surface)] py-16 md:py-24">
         <div className="container-x grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { icon: Eye, t: "Vision", d: "To become Africa's most trusted real estate development and consultancy brand." },
-            { icon: Target, t: "Mission", d: "Deliver sustainable real estate value through expert planning, development and management." },
-            { icon: Compass, t: "Core Purpose", d: "Empower clients to plan, develop and manage with absolute confidence." },
-            { icon: Shield, t: "Governance", d: "Operate with transparency, accountability and uncompromising ethics." },
+            { icon: Eye, t: "Vision", d: "To become Africa’s premier platform-institution, creating multi-dimensional possibilities for real estate practitioners to function effectively and efficiently." },
+            { icon: Target, t: "Mission", d: "To constantly review and improve our platform's capabilities, enabling real estate ecosystem practitioners to maximize dividends, progress, and development." },
+            { icon: Compass, t: "Core Purpose", d: "To drive real estate growth through cutting-edge innovation, investment opportunities, infrastructure development, and reduced risks for lasting value." },
+            { icon: Shield, t: "Governance", d: "Determined to make a significant difference, we believe strongly in the principles of impact that should govern our behavior within the communities we seek to reshape." },
           ].map(({ icon: Icon, t, d }) => (
             <div key={t} className="rounded-xl bg-white border border-border p-6">
               <Icon className="h-8 w-8 text-primary" />

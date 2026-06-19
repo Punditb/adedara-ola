@@ -356,10 +356,10 @@ function Investor() {
 
 function CorporateFramework() {
   const cards = [
-    { icon: Eye, t: "Vision", d: "To become Africa's most trusted real estate development and consultancy brand." },
-    { icon: Target, t: "Mission", d: "Deliver sustainable real estate value through expert planning, development and management." },
-    { icon: Shield, t: "Governance", d: "Operate with transparency, accountability and uncompromising ethics." },
-    { icon: Compass, t: "Objectives", d: "Optimize ROI, protect capital, and create assets that endure." },
+    { icon: Eye, t: "Vision", d: "To become Africa’s premier platform-institution, creating multi-dimensional possibilities for real estate practitioners to function effectively and efficiently." },
+    { icon: Target, t: "Mission", d: "To constantly review and improve our platform's capabilities, enabling real estate ecosystem practitioners to maximize dividends, progress, and development." },
+    { icon: Shield, t: "Governance", d: "Determined to make a significant difference, we believe strongly in the principles of impact that should govern our behavior within the communities we seek to reshape." },
+    { icon: Compass, t: "Objectives", d: "To drive real estate growth through cutting-edge innovation, investment opportunities, infrastructure development, and reduced risks for lasting value." },
   ];
   const values = ["Totality", "Quality", "Possibility", "Reliability"];
   return (

@@ -43,10 +43,17 @@ function ProjectsPage() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Our Projects"
-        title="Developments That Define Markets"
-        subtitle="A growing portfolio of residential, commercial, mixed-use and infrastructure projects across Nigeria."
-      />
+  eyebrow="Our Projects"
+  title="Developments That Define Markets"
+  subtitle={
+    <>
+      As a platform, our combined stream of professionals have engaged in varied types of building projects ranging from designing commercial structures to raising some of the eye-catching city pride.
+      <br />
+      <br />
+      <em>Take a cursory view of some of these past and ongoing projects.</em>
+    </>
+  }
+/>
 
       <section className="container-x py-12 md:py-16">
         <div className="flex flex-wrap gap-2 mb-10">

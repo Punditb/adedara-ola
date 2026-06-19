@@ -23,7 +23,7 @@ function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let's Talk About Your Project"
-        subtitle="Whether you're planning a development, exploring an investment, or need property management — our team is ready to help."
+        subtitle="With our wide range of professional competencies and the commitment to quick and effective delivery, you could give us a conspectus of what service you would like us to render to you by using the form below:"
       />
 
       <section className="container-x py-16 grid lg:grid-cols-[1.2fr,1fr] gap-12">

@@ -19,7 +19,7 @@ export function PageHero({
 }: {
   eyebrow?: string;
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
 }) {
   return (
     <section className="bg-gradient-to-b from-[var(--surface)] to-background border-b border-border">
