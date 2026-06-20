@@ -1,40 +1,38 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 
 const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
+  process.env.SUPABASE_URL || "",
+  process.env.SUPABASE_SERVICE_ROLE_KEY || "",
 );
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+const resend = new Resend(process.env.RESEND_API_KEY || "");
 
-export default async function handler(req: Request) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
-    return Response.json({ error: "Method not allowed" }, { status: 405 });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const body = await req.json();
-    const { name, email, phone, company, service, message } = body;
+    const { name, email, phone, company, service, message } = req.body;
 
     if (!name || !email || !message) {
-      return Response.json({ error: "Missing required fields" }, { status: 400 });
+      return res.status(400).json({ error: "Missing required fields" });
     }
 
-    const { error } = await supabase.from("contact_submissions").insert({
-      name,
-      email,
-      phone,
-      company,
-      service,
-      message,
-    });
+    const { error: supabaseError } = await supabase
+      .from("contact_submissions")
+      .insert({ name, email, phone, company, service, message });
 
-    if (error) throw error;
+    if (supabaseError) {
+      console.error("Supabase error:", supabaseError);
+      return res.status(500).json({ error: "Could not save submission" });
+    }
 
-    await resend.emails.send({
+    const emailResult = await resend.emails.send({
       from: "Adedara Ola Website <onboarding@resend.dev>",
-      to: process.env.CONTACT_RECEIVER_EMAIL!,
+      to: process.env.CONTACT_RECEIVER_EMAIL || "",
       subject: `New website enquiry from ${name}`,
       replyTo: email,
       html: `
@@ -49,9 +47,14 @@ export default async function handler(req: Request) {
       `,
     });
 
-    return Response.json({ success: true });
+    if (emailResult.error) {
+      console.error("Resend error:", emailResult.error);
+      return res.status(500).json({ error: "Could not send notification email" });
+    }
+
+    return res.status(200).json({ success: true });
   } catch (error) {
-    console.error(error);
-    return Response.json({ error: "Something went wrong" }, { status: 500 });
+    console.error("Contact API error:", error);
+    return res.status(500).json({ error: "Something went wrong" });
   }
 }
