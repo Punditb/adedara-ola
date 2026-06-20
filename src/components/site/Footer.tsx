@@ -25,7 +25,7 @@ export function Footer() {
               className="flex-1 rounded-md bg-white/10 border border-white/15 px-3 py-2.5 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-primary"
             />
             <button className="rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-              Subscribe
+              Get Updates
             </button>
           </form>
           <div className="mt-6 flex gap-3">

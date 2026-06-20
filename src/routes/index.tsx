@@ -17,6 +17,8 @@ import {
   Sparkles,
   BarChart3,
   Calendar,
+  DraftingCompass,
+  Handshake,
 } from "lucide-react";
 import { SiteLayout, CTASection } from "@/components/site/Layout";
 import heroImg from "@/assets/hero.jpg";
@@ -62,12 +64,36 @@ export const Route = createFileRoute("/")({
 });
 
 const SERVICES = [
-  { icon: ClipboardCheck, title: "Project Planning", desc: "End-to-end planning that aligns vision, feasibility, and execution from day one." },
-  { icon: Hammer, title: "Project Construction", desc: "Quality-driven construction delivery with cost, timeline and standards discipline." },
-  { icon: Wrench, title: "Refurbishment", desc: "Transform existing assets into modern, high-performing properties." },
-  { icon: TrendingUp, title: "Real Estate Economics", desc: "Market intelligence and valuation to maximize asset value and ROI." },
-  { icon: ClipboardCheck, title: "Building Approvals", desc: "Navigate regulatory frameworks and secure approvals without friction." },
-  { icon: Building2, title: "Property Maintenance", desc: "Preserve asset value through proactive, professional facility management." },
+  {
+    icon: ClipboardCheck,
+    title: "Project Planning",
+    desc: "End-to-end planning that aligns vision, feasibility, and execution from day one.",
+  },
+  {
+    icon: Hammer,
+    title: "Project Construction",
+    desc: "Quality-driven construction delivery with cost, timeline and standards discipline.",
+  },
+  {
+    icon: DraftingCompass,
+    title: "Architectural Concepts & Drawings",
+    desc: "Transform ideas into detailed architectural concepts, plans and drawings ready for development.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Real Estate Economics",
+    desc: "Market intelligence and valuation to maximize asset value and ROI.",
+  },
+  {
+    icon: Handshake,
+    title: "Property Sales & Purchases",
+    desc: "Connect with the right property opportunities through transparent and professionally guided transactions.",
+  },
+  {
+    icon: Building2,
+    title: "Property & Facilities Management",
+    desc: "Protect and enhance property value through proactive maintenance, operations and facility oversight.",
+  },
 ];
 
 const WHY = [
@@ -422,7 +448,7 @@ function Testimonials() {
           </figure>
         ))}
       </div>
-      <p className="text-center text-xs text-muted-foreground mt-6">Sample testimonials — to be replaced with real client reviews.</p>
+      
     </section>
   );
 }

@@ -75,9 +75,51 @@ function Info({ icon: Icon, title, lines }: { icon: any; title: string; lines: R
 
 function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSending(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      company: formData.get("company"),
+      service: formData.get("service"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      setSent(true);
+      form.reset();
+    } catch {
+      setError("Sorry, your message could not be sent. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  }
+
   return (
     <form
-      onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+      onSubmit={handleSubmit}
       className="rounded-2xl bg-white border border-border p-6 md:p-8 shadow-[var(--shadow-card)] space-y-4"
     >
       {sent ? (
@@ -93,23 +135,47 @@ function ContactForm() {
             <Field label="Phone" name="phone" />
             <Field label="Company (optional)" name="company" required={false} />
           </div>
+
           <div>
             <label className="text-sm font-semibold text-navy">I'm interested in</label>
-            <select className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm focus:outline-none focus:border-primary">
+            <select
+              name="service"
+              required
+              className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm focus:outline-none focus:border-primary"
+            >
               <option>Project Planning</option>
-              <option>Construction</option>
-              <option>Refurbishment</option>
-              <option>Building Approvals</option>
-              <option>Property Management</option>
-              <option>Investment Opportunities</option>
+              <option>Project Construction</option>
+              <option>Architectural Concepts, Planning and Drawings</option>
+              <option>3D Designs and Animations</option>
+              <option>Mechanical and Electrical Solutions</option>
+              <option>Structural Design and Development</option>
+              <option>Property Sales and Purchases</option>
+              <option>Property and Facilities Management</option>
+              <option>Real Estate Economics</option>
+              <option>Land and Building Documentation</option>
               <option>Other</option>
             </select>
           </div>
+
           <div>
             <label className="text-sm font-semibold text-navy">Message</label>
-            <textarea rows={5} required className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm focus:outline-none focus:border-primary" placeholder="Tell us a little about your project..." />
+            <textarea
+              name="message"
+              rows={5}
+              required
+              className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm focus:outline-none focus:border-primary"
+              placeholder="Tell us a little about your project..."
+            />
           </div>
-          <button className="w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-primary/90">Send message</button>
+
+          {error && <p className="text-sm text-red-600">{error}</p>}
+
+          <button
+            disabled={sending}
+            className="w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {sending ? "Sending..." : "Send message"}
+          </button>
         </>
       )}
     </form>
