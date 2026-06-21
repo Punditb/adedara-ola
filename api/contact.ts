@@ -31,7 +31,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const emailResult = await resend.emails.send({
-      from: "Adedara Ola Website <onboarding@resend.dev>",
+      from: "Adedara Ola Website <noreply@adedaraolaandco.com>",
       to: process.env.CONTACT_RECEIVER_EMAIL || "",
       subject: `New website enquiry from ${name}`,
       replyTo: email,
