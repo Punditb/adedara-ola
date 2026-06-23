@@ -98,7 +98,6 @@ function AboutPage() {
           <div className="max-w-2xl">
             <span className="eyebrow">Leadership</span>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold">The People Behind the Practice</h2>
-            <p className="mt-4 text-muted-foreground">Leadership profiles will be added soon.</p>
           </div>
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {Array.from({ length: 4 }).map((_, i) => (

@@ -158,7 +158,7 @@ function PropertyDetailPage() {
             </div>
 
             <Link
-              to="/contact"
+              to="/book-consultation"
               className="mt-8 inline-flex rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
             >
               {property.cta}

@@ -52,7 +52,7 @@ export function CTASection() {
         </div>
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:items-stretch">
           <a
-            href="/contact"
+            href="/book-consultation"
             className="rounded-md bg-primary px-6 py-3.5 text-center font-semibold text-primary-foreground hover:bg-primary/90"
           >
             Book Consultation

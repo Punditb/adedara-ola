@@ -67,7 +67,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <Link
-            to="/contact"
+            to="/book-consultation"
             className="hidden sm:inline-flex shrink-0 whitespace-nowrap items-center justify-center rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-all"
           >
             Book Consultation
@@ -96,7 +96,7 @@ export function Header() {
               </Link>
             ))}
             <Link
-              to="/contact"
+              to="/book-consultation"
               className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
             >
               Book Consultation

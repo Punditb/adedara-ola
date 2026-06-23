@@ -16,6 +16,7 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookConsultationRouteImport } from './routes/book-consultation'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PropertiesSlugRouteImport } from './routes/properties/$slug'
@@ -55,6 +56,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookConsultationRoute = BookConsultationRouteImport.update({
+  id: '/book-consultation',
+  path: '/book-consultation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -74,6 +80,7 @@ const PropertiesSlugRoute = PropertiesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/investors': typeof InvestorsRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/investors': typeof InvestorsRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/investors': typeof InvestorsRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/book-consultation'
     | '/contact'
     | '/insights'
     | '/investors'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/book-consultation'
     | '/contact'
     | '/insights'
     | '/investors'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/book-consultation'
     | '/contact'
     | '/insights'
     | '/investors'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BookConsultationRoute: typeof BookConsultationRoute
   ContactRoute: typeof ContactRoute
   InsightsRoute: typeof InsightsRoute
   InvestorsRoute: typeof InvestorsRoute
@@ -210,6 +223,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/book-consultation': {
+      id: '/book-consultation'
+      path: '/book-consultation'
+      fullPath: '/book-consultation'
+      preLoaderRoute: typeof BookConsultationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -249,6 +269,7 @@ const PropertiesRouteWithChildren = PropertiesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BookConsultationRoute: BookConsultationRoute,
   ContactRoute: ContactRoute,
   InsightsRoute: InsightsRoute,
   InvestorsRoute: InvestorsRoute,

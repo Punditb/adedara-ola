@@ -155,7 +155,7 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-primary/90 transition-all">
+            <Link to="/book-consultation" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-primary/90 transition-all">
               Book Consultation <ArrowRight className="h-4 w-4" />
             </Link>
             <Link to="/services" className="inline-flex items-center gap-2 rounded-md border-2 border-secondary px-6 py-3.5 font-semibold text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all">
