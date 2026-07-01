@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout, PageHero, CTASection } from "@/components/site/Layout";
 import { Calendar, ArrowRight } from "lucide-react";
-import { CATS, POSTS } from "@/lib/insights";
+import { CATS, getSortedPosts } from "@/lib/insights";
 
 export const Route = createFileRoute("/insights/")({
   head: () => ({
@@ -21,7 +21,8 @@ export const Route = createFileRoute("/insights/")({
 
 function InsightsPage() {
   const [cat, setCat] = useState<(typeof CATS)[number]>("All");
-  const list = cat === "All" ? POSTS : POSTS.filter((p) => p.tag === cat);
+  const sortedPosts = getSortedPosts();
+  const list = cat === "All" ? sortedPosts : sortedPosts.filter((p) => p.tag === cat);
   return (
     <SiteLayout>
       <PageHero

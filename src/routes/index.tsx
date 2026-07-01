@@ -21,6 +21,7 @@ import {
   Handshake,
 } from "lucide-react";
 import { SiteLayout, CTASection } from "@/components/site/Layout";
+import { getLatestPosts } from "@/lib/insights";
 import heroImg from "@/assets/hero.jpg";
 import residentialImg from "@/assets/project-residential.jpg";
 import commercialImg from "@/assets/project-commercial.jpg";
@@ -448,17 +449,14 @@ function Testimonials() {
           </figure>
         ))}
       </div>
-      
+
     </section>
   );
 }
 
 function Insights() {
-  const posts = [
-    { tag: "Market Trends", title: "Lagos Real Estate Outlook 2026", date: "May 18, 2026", img: commercialImg },
-    { tag: "Investment", title: "Mixed-Use: The New Yield Frontier", date: "Apr 22, 2026", img: mixedImg },
-    { tag: "Development", title: "Securing Approvals Without Delays", date: "Mar 10, 2026", img: constructionImg },
-  ];
+  const posts = getLatestPosts(3);
+
   return (
     <section className="bg-[var(--surface)] py-20 md:py-28">
       <div className="container-x">
@@ -469,23 +467,59 @@ function Insights() {
               Thought Leadership for Real Estate Decision-Makers
             </h2>
           </div>
-          <Link to="/insights" className="inline-flex items-center gap-2 font-semibold text-primary self-start md:self-end">
+
+          <Link
+            to="/insights"
+            className="inline-flex items-center gap-2 font-semibold text-primary self-start md:self-end"
+          >
             All articles <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {posts.map((p) => (
-            <article key={p.title} className="group rounded-xl bg-white border border-border overflow-hidden hover:shadow-[var(--shadow-card)] transition-all">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              to="/insights/$slug"
+              params={{ slug: post.slug }}
+              className="group rounded-xl bg-white border border-border overflow-hidden hover:shadow-[var(--shadow-card)] transition-all"
+            >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={p.img} alt={p.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" width={1024} height={768} />
+                <img
+                  src={post.img}
+                  alt={post.title}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  width={1024}
+                  height={768}
+                />
               </div>
+
               <div className="p-6">
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">{p.tag}</span>
-                <h3 className="mt-2 font-display font-semibold text-navy text-lg leading-snug">{p.title}</h3>
-                <p className="mt-3 text-xs text-muted-foreground flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" /> {p.date}</p>
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+                  {post.tag}
+                </span>
+
+                <h3 className="mt-2 font-display font-semibold text-navy text-lg leading-snug">
+                  {post.title}
+                </h3>
+
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {post.excerpt}
+                </p>
+
+                <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
+                    <Calendar className="h-3.5 w-3.5" />
+                    {post.date}
+                  </span>
+
+                  <span className="flex items-center gap-1 text-primary font-semibold">
+                    Read <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
