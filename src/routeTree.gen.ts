@@ -19,7 +19,9 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookConsultationRouteImport } from './routes/book-consultation'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InsightsIndexRouteImport } from './routes/insights/index'
 import { Route as PropertiesSlugRouteImport } from './routes/properties/$slug'
+import { Route as InsightsSlugRouteImport } from './routes/insights/$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -71,10 +73,20 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => InsightsRoute,
+} as any)
 const PropertiesSlugRoute = PropertiesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => PropertiesRoute,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InsightsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -82,26 +94,29 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/investors': typeof InvestorsRoute
   '/projects': typeof ProjectsRoute
   '/properties': typeof PropertiesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
   '/investors': typeof InvestorsRoute
   '/projects': typeof ProjectsRoute
   '/properties': typeof PropertiesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/insights': typeof InsightsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -109,13 +124,15 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/investors': typeof InvestorsRoute
   '/projects': typeof ProjectsRoute
   '/properties': typeof PropertiesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -130,20 +147,23 @@ export interface FileRouteTypes {
     | '/properties'
     | '/services'
     | '/sitemap.xml'
+    | '/insights/$slug'
     | '/properties/$slug'
+    | '/insights/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/book-consultation'
     | '/contact'
-    | '/insights'
     | '/investors'
     | '/projects'
     | '/properties'
     | '/services'
     | '/sitemap.xml'
+    | '/insights/$slug'
     | '/properties/$slug'
+    | '/insights'
   id:
     | '__root__'
     | '/'
@@ -156,7 +176,9 @@ export interface FileRouteTypes {
     | '/properties'
     | '/services'
     | '/sitemap.xml'
+    | '/insights/$slug'
     | '/properties/$slug'
+    | '/insights/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -164,7 +186,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BookConsultationRoute: typeof BookConsultationRoute
   ContactRoute: typeof ContactRoute
-  InsightsRoute: typeof InsightsRoute
+  InsightsRoute: typeof InsightsRouteWithChildren
   InvestorsRoute: typeof InvestorsRoute
   ProjectsRoute: typeof ProjectsRoute
   PropertiesRoute: typeof PropertiesRouteWithChildren
@@ -244,6 +266,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/': {
+      id: '/insights/'
+      path: '/'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof InsightsRoute
+    }
     '/properties/$slug': {
       id: '/properties/$slug'
       path: '/$slug'
@@ -251,8 +280,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PropertiesSlugRouteImport
       parentRoute: typeof PropertiesRoute
     }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof InsightsRoute
+    }
   }
 }
+
+interface InsightsRouteChildren {
+  InsightsSlugRoute: typeof InsightsSlugRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
+}
+
+const InsightsRouteChildren: InsightsRouteChildren = {
+  InsightsSlugRoute: InsightsSlugRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
+}
+
+const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
+  InsightsRouteChildren,
+)
 
 interface PropertiesRouteChildren {
   PropertiesSlugRoute: typeof PropertiesSlugRoute
@@ -271,7 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BookConsultationRoute: BookConsultationRoute,
   ContactRoute: ContactRoute,
-  InsightsRoute: InsightsRoute,
+  InsightsRoute: InsightsRouteWithChildren,
   InvestorsRoute: InvestorsRoute,
   ProjectsRoute: ProjectsRoute,
   PropertiesRoute: PropertiesRouteWithChildren,

@@ -1,0 +1,142 @@
+import { j as jsxRuntimeExports } from "./_libs/react.mjs";
+import { L as Link } from "./_libs/tanstack__react-router.mjs";
+import { S as SiteLayout, C as CTASection } from "./_ssr/Layout-DUUi7oVv.mjs";
+import { P as POSTS, C as CATS } from "./_ssr/insights-C53jUVUa.mjs";
+import { a as Route } from "./_ssr/router-B9TCceW4.mjs";
+import { r as ArrowLeft, p as Sparkles, q as Calendar, k as Clock, s as BookOpen, t as Layers, o as ArrowRight } from "./_libs/lucide-react.mjs";
+import "./_libs/tanstack__router-core.mjs";
+import "./_libs/tanstack__history.mjs";
+import "./_libs/cookie-es.mjs";
+import "./_libs/seroval.mjs";
+import "./_libs/seroval-plugins.mjs";
+import "node:stream/web";
+import "node:stream";
+import "./_libs/react-dom.mjs";
+import "util";
+import "crypto";
+import "async_hooks";
+import "stream";
+import "./_libs/isbot.mjs";
+import "./_libs/tanstack__query-core.mjs";
+import "./_libs/tanstack__react-query.mjs";
+function slugify(text) {
+  return text.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-");
+}
+function renderBoldText(text) {
+  return text.split(/(\*\*.*?\*\*)/g).map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { className: "font-semibold text-navy", children: part.slice(2, -2) }, index);
+    }
+    return part;
+  });
+}
+function InsightDetailPage() {
+  const {
+    slug
+  } = Route.useParams();
+  const post = POSTS.find((p) => p.slug === slug);
+  if (!post) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(SiteLayout, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "container-x py-24", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold text-navy", children: "Article not found" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/insights", className: "mt-6 inline-block text-primary font-semibold", children: "Back to Insights" })
+    ] }) });
+  }
+  const headings = post.content.filter((block) => block.type === "heading");
+  const relatedPosts = POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const articleCategories = CATS.filter((cat) => cat !== "All");
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(SiteLayout, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative overflow-hidden bg-gradient-to-br from-[var(--surface)] via-white to-background border-b border-border", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top_right,rgba(0,160,220,0.18),transparent_35%)]" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative container-x py-14 md:py-24 max-w-5xl", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/insights", className: "inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "h-4 w-4" }),
+            "Back to Insights"
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { className: "h-3.5 w-3.5" }),
+            post.tag
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-navy max-w-4xl", children: post.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl", children: post.excerpt }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 flex flex-wrap items-center gap-4 text-sm text-muted-foreground", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-navy", children: post.author }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden sm:inline", children: "•" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1.5", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "h-4 w-4" }),
+              post.date
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden sm:inline", children: "•" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1.5", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "h-4 w-4" }),
+              post.readTime
+            ] })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container-x py-10 md:py-16", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid lg:grid-cols-[1fr_320px] gap-10 items-start", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rounded-2xl overflow-hidden border border-border bg-white shadow-[var(--shadow-card)]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: post.img, alt: post.title, className: "w-full aspect-[16/8] object-cover" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-10 rounded-2xl bg-white border border-border p-6 md:p-10 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-3xl", children: post.content.map((block, index) => {
+            if (block.type === "heading") {
+              const id = slugify(block.text);
+              return /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { id, className: "scroll-mt-28 mt-10 first:mt-0 text-2xl md:text-3xl font-bold text-navy leading-tight", children: block.text }, index);
+            }
+            if (block.type === "subheading") {
+              return /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "mt-8 text-xl md:text-2xl font-bold text-navy leading-tight", children: block.text }, index);
+            }
+            if (block.type === "list") {
+              return /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "mt-5 space-y-3", children: block.items.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex gap-3 text-muted-foreground leading-relaxed", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mt-2 h-2 w-2 rounded-full bg-primary shrink-0" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item })
+              ] }, item)) }, index);
+            }
+            if (block.type === "numbered-list") {
+              return /* @__PURE__ */ jsxRuntimeExports.jsx("ol", { className: "mt-5 space-y-3 list-decimal pl-6 text-muted-foreground", children: block.items.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "leading-relaxed pl-2", children: item }, item)) }, index);
+            }
+            return /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-[17px] text-muted-foreground leading-8", children: renderBoldText(block.text) }, index);
+          }) }) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "space-y-6 lg:sticky lg:top-28", children: [
+          headings.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded-2xl bg-white border border-border p-6 shadow-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-navy font-display font-semibold", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "h-5 w-5 text-primary" }),
+              "In this article"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 space-y-3", children: headings.map((heading) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: `#${slugify(heading.text)}`, className: "block text-sm text-muted-foreground hover:text-primary transition-colors", children: heading.text }, heading.text)) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded-2xl bg-[var(--surface)] border border-border p-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-navy font-display font-semibold", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Layers, { className: "h-5 w-5 text-primary" }),
+              "Categories"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 flex flex-wrap gap-2", children: articleCategories.map((cat) => /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/insights", className: `rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${post.tag === cat ? "bg-primary text-primary-foreground" : "bg-white text-secondary hover:text-primary"}`, children: cat }, cat)) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded-2xl bg-[var(--navy)] text-white p-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow text-primary", children: "Need Guidance?" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "mt-3 font-display text-xl font-bold", children: "Discuss Your Real Estate Decision" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-3 text-sm text-white/70 leading-relaxed", children: "Speak with our team about planning, development, investment, approvals, or property strategy." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/book-consultation", className: "mt-5 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90", children: "Book Consultation" })
+          ] }),
+          relatedPosts.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded-2xl bg-white border border-border p-6 shadow-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-semibold text-navy", children: "More Insights" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 space-y-4", children: relatedPosts.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/insights/$slug", params: {
+              slug: item.slug
+            }, className: "group block border-b border-border last:border-0 pb-4 last:pb-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs font-semibold uppercase tracking-wider text-primary", children: item.tag }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "mt-1 text-sm font-semibold text-navy group-hover:text-primary transition-colors", children: item.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground", children: [
+                "Read article ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-3 w-3" })
+              ] })
+            ] }, item.slug)) })
+          ] })
+        ] })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CTASection, {})
+  ] });
+}
+export {
+  InsightDetailPage as component
+};
