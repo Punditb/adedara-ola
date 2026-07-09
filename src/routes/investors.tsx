@@ -79,48 +79,118 @@ function InvestorsPage() {
 }
 
 function InvestorForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("loading");
+
+    const formData = new FormData(e.currentTarget);
+
+    const payload = {
+      fullName: formData.get("fullName"),
+      organization: formData.get("organization"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      ticketSize: formData.get("ticketSize"),
+      investmentFocus: formData.get("investmentFocus"),
+    };
+
+    try {
+      const response = await fetch("/api/investor-inquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      setStatus("success");
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  }
+
   return (
     <section className="container-x py-16 md:py-24 grid lg:grid-cols-[1fr,1.2fr] gap-12 items-start">
       <div>
         <span className="eyebrow">Investor Inquiry</span>
-        <h2 className="mt-3 text-3xl md:text-4xl font-bold">Explore Active Opportunities</h2>
+        <h2 className="mt-3 text-3xl md:text-4xl font-bold">
+          Explore Active Opportunities
+        </h2>
         <p className="mt-4 text-muted-foreground leading-relaxed">
           Tell us a little about your investment thesis and we will follow up confidentially
           with relevant opportunities from our pipeline.
         </p>
       </div>
+
       <form
-        onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+        onSubmit={handleSubmit}
         className="rounded-2xl bg-white border border-border p-6 md:p-8 shadow-[var(--shadow-card)] space-y-4"
       >
-        {submitted ? (
+        {status === "success" ? (
           <div className="text-center py-10">
             <p className="text-2xl font-display font-bold text-navy">Thank you</p>
-            <p className="mt-2 text-muted-foreground">Our investor relations team will be in touch within 1 business day.</p>
+            <p className="mt-2 text-muted-foreground">
+              Our investor relations team will be in touch within 1 business day.
+            </p>
           </div>
         ) : (
           <>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Field label="Full name" name="name" />
-              <Field label="Organization" name="org" />
+              <Field label="Full name" name="fullName" />
+              <Field label="Organization" name="organization" required={false} />
               <Field label="Email" type="email" name="email" />
-              <Field label="Phone" name="phone" />
+              <Field label="Phone" name="phone" required={false} />
             </div>
+
             <div>
-              <label className="text-sm font-semibold text-navy">Ticket size</label>
-              <select className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm">
+              <label htmlFor="ticketSize" className="text-sm font-semibold text-navy">
+                Ticket size
+              </label>
+              <select
+                id="ticketSize"
+                name="ticketSize"
+                className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm"
+              >
                 <option>Under ₦50M</option>
                 <option>₦50M – ₦250M</option>
                 <option>₦250M – ₦1B</option>
                 <option>₦1B+</option>
               </select>
             </div>
+
             <div>
-              <label className="text-sm font-semibold text-navy">Investment focus</label>
-              <textarea rows={4} className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm" placeholder="Residential, commercial, mixed-use, expected horizon..." />
+              <label htmlFor="investmentFocus" className="text-sm font-semibold text-navy">
+                Investment focus
+              </label>
+              <textarea
+                id="investmentFocus"
+                name="investmentFocus"
+                rows={4}
+                className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm"
+                placeholder="Residential, commercial, mixed-use, expected horizon..."
+              />
             </div>
-            <button className="w-full rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary/90">Submit inquiry</button>
+
+            {status === "error" && (
+              <p className="rounded-md bg-red-50 px-4 py-3 text-sm text-red-700">
+                Sorry, your inquiry could not be submitted. Please try again.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="w-full rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {status === "loading" ? "Submitting..." : "Submit inquiry"}
+            </button>
           </>
         )}
       </form>
@@ -128,11 +198,29 @@ function InvestorForm() {
   );
 }
 
-function Field({ label, name, type = "text" }: { label: string; name: string; type?: string }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required = true,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+}) {
   return (
     <div>
-      <label htmlFor={name} className="text-sm font-semibold text-navy">{label}</label>
-      <input id={name} name={name} type={type} required className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm focus:outline-none focus:border-primary" />
+      <label htmlFor={name} className="text-sm font-semibold text-navy">
+        {label}
+      </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        required={required}
+        className="mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm focus:outline-none focus:border-primary"
+      />
     </div>
   );
 }

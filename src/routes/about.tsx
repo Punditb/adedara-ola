@@ -120,10 +120,10 @@ function AboutPage() {
         </div>
         <ol className="mt-12 relative border-l-2 border-primary/30 pl-8 space-y-10">
           {[
-            { year: "2010", t: "Founded", d: "Adedara Ola & Co. is established in Lagos." },
-            { year: "2014", t: "First Major Development", d: "Delivery of flagship mixed-use development." },
-            { year: "2019", t: "Consultancy Practice", d: "Formalization of investor-focused advisory services." },
-            { year: "2024", t: "Expanding Horizons", d: "Active project pipeline across multiple Nigerian states." },
+            { year: "2022", t: "Founded", d: "Adedara Ola & Co. is established in Lagos." },
+            { year: "2024", t: "First Major Development", d: "17-unit Apartments building close to MM2 Intl. Airport." },
+            { year: "2025", t: "Consultancy Practice", d: "Formalization of investor-focused advisory services." },
+            { year: "2026", t: "Expanding Horizons", d: "Active project pipeline across multiple Nigerian states." },
           ].map((m) => (
             <li key={m.year} className="relative">
               <span className="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-primary ring-4 ring-primary/20" />

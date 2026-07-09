@@ -121,3 +121,25 @@
   text-transform: uppercase;
   color: var(--color-primary);
 }
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(56px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-section.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

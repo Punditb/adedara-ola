@@ -2,18 +2,67 @@ import type { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { WhatsAppFloat } from "./WhatsAppFloat";
+import { useEffect, useRef } from "react";
 
-export function SiteLayout({ children }: { children: ReactNode }) {
+export function SiteLayout({ children }: { children: React.ReactNode }) {
+  const mainRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const main = mainRef.current;
+    if (!main) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const sections = Array.from(main.querySelectorAll("section"));
+
+    if (prefersReducedMotion) {
+      sections.forEach((section) => {
+        section.classList.add("reveal-visible");
+      });
+      return;
+    }
+
+    sections.forEach((section, index) => {
+      section.classList.add("reveal-section");
+
+      if (index === 0) {
+        section.classList.add("reveal-visible");
+      }
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -80px 0px",
+      }
+    );
+
+    sections.forEach((section, index) => {
+      if (index !== 0) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div>
       <Header />
-      <main className="flex-1">{children}</main>
+      <main ref={mainRef}>{children}</main>
       <Footer />
       <WhatsAppFloat />
     </div>
   );
 }
-
 export function PageHero({
   eyebrow,
   title,
