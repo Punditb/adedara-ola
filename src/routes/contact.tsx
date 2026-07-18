@@ -26,7 +26,7 @@ function ContactPage() {
         subtitle="With our wide range of professional competencies and the commitment to quick and effective delivery, you could give us a conspectus of what service you would like us to render to you by using the form below:"
       />
 
-      <section className="container-x py-16 grid lg:grid-cols-[1.2fr,1fr] gap-12">
+      <section data-reveal className="container-x py-16 grid lg:grid-cols-[1.2fr,1fr] gap-12">
         <ContactForm />
         <div className="space-y-5">
           <Info icon={MapPin} title="Office" lines={["42, Ola Street, Itire,", "Surulere, Lagos, Nigeria"]} />
@@ -42,7 +42,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="container-x pb-16">
+      <section data-reveal className="container-x pb-16">
         <div className="rounded-2xl overflow-hidden border border-border aspect-[16/7] bg-muted">
           <iframe
             title="Office location map"

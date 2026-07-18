@@ -27,7 +27,7 @@ function InvestorsPage() {
         subtitle="We partner with institutional capital, family offices and HNW investors to source, structure and shepherd Nigerian real estate opportunities."
       />
 
-      <section className="container-x py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <section data-reveal className="container-x py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
         <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-[var(--shadow-card)]">
           <img src={investorsImg} alt="Real estate investor reviewing portfolio" loading="lazy" className="h-full w-full object-cover" width={1280} height={960} />
         </div>
@@ -47,7 +47,7 @@ function InvestorsPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--surface)] py-16 md:py-24">
+      <section data-reveal className="bg-[var(--surface)] py-16 md:py-24">
         <div className="container-x">
           <div className="max-w-2xl">
             <span className="eyebrow">Investment Pillars</span>
@@ -117,7 +117,7 @@ function InvestorForm() {
   }
 
   return (
-    <section className="container-x py-16 md:py-24 grid lg:grid-cols-[1fr,1.2fr] gap-12 items-start">
+    <section data-reveal className="container-x py-16 md:py-24 grid lg:grid-cols-[1fr,1.2fr] gap-12 items-start">
       <div>
         <span className="eyebrow">Investor Inquiry</span>
         <h2 className="mt-3 text-3xl md:text-4xl font-bold">

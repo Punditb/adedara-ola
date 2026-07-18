@@ -25,7 +25,7 @@ function BookConsultationPage() {
                 title="Schedule a Consultation With Our Team"
                 subtitle="Choose a convenient date and time to discuss your project, property needs, investment plans, or real estate development goals."
             />
-            <section className="container-x pt-16">
+            <section data-reveal className="container-x pt-16">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {[
                         {
@@ -60,7 +60,7 @@ function BookConsultationPage() {
                 </div>
             </section>
 
-            <section className="container-x py-12 md:py-16">
+            <section data-reveal className="container-x py-12 md:py-16">
                 <div className="rounded-2xl overflow-hidden border border-border bg-white shadow-[var(--shadow-card)]">
                     <iframe
                         src="https://cal.com/adedarao/consultation-meeting"

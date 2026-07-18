@@ -86,7 +86,7 @@ function PropertyDetailPage() {
   if (!property) {
     return (
       <SiteLayout>
-        <section className="container-x py-24">
+        <section data-reveal className="container-x py-24">
           <h1 className="font-display text-3xl font-bold text-navy">Property not found</h1>
           <Link to="/properties" className="mt-6 inline-block text-primary font-semibold">
             Back to properties

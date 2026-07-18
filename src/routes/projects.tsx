@@ -55,7 +55,9 @@ function ProjectsPage() {
   }
 />
 
-      <section className="container-x py-12 md:py-16">
+
+{false && (
+      <section data-reveal className="container-x py-12 md:py-16">
         <div className="flex flex-wrap gap-2 mb-10">
           {CATEGORIES.map((c) => (
             <button
@@ -88,6 +90,7 @@ function ProjectsPage() {
           ))}
         </div>
       </section>
+)}
 
       <CTASection />
     </SiteLayout>

@@ -390,7 +390,7 @@ function ServicesPage() {
 function ServiceBlock({ service, reverse }: { service: (typeof SERVICES)[number]; reverse: boolean }) {
   const Icon = service.icon;
   return (
-    <section className={`grid lg:grid-cols-2 gap-12 items-start ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
+    <section data-reveal className={`grid lg:grid-cols-2 gap-12 items-start ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
       <div>
         <div className="h-14 w-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
           <Icon className="h-7 w-7" />

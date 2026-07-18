@@ -26,7 +26,7 @@ function AboutPage() {
         subtitle="Adedara Ola & Co. is a Lagos-based real estate development, project planning, consultancy and management firm helping investors and property owners create assets that endure."
       />
 
-      <section className="container-x py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <section data-reveal className="container-x py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
         <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-[var(--shadow-card)]">
           <img src={teamImg} alt="Adedara Ola & Co. team" loading="lazy" className="h-full w-full object-cover" width={1280} height={960} />
         </div>
@@ -54,7 +54,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--surface)] py-16 md:py-24">
+      <section data-reveal className="bg-[var(--surface)] py-16 md:py-24">
         <div className="container-x grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { icon: Eye, t: "Vision", d: "To become Africa’s premier platform-institution, creating multi-dimensional possibilities for real estate practitioners to function effectively and efficiently." },
@@ -71,7 +71,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="container-x py-16 md:py-24">
+      <section data-reveal className="container-x py-16 md:py-24">
         <div className="max-w-2xl">
           <span className="eyebrow">Objectives</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold">What We Set Out to Achieve</h2>
@@ -93,13 +93,13 @@ function AboutPage() {
         </ul>
       </section>
 
-      <section className="bg-[var(--surface)] py-16 md:py-24">
+      <section data-reveal className="bg-[var(--surface)] py-16 md:py-24">
         <div className="container-x">
           <div className="max-w-2xl">
             <span className="eyebrow">Leadership</span>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold">The People Behind the Practice</h2>
           </div>
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {/*<div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {Array.from({ length: 4 }).map((_, i) => (
               <div key={i} className="rounded-xl bg-white border border-border overflow-hidden">
                 <div className="aspect-square bg-gradient-to-br from-primary/20 to-navy/20" />
@@ -109,11 +109,11 @@ function AboutPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
-      <section className="container-x py-16 md:py-24">
+      <section data-reveal className="container-x py-16 md:py-24">
         <div className="max-w-2xl">
           <span className="eyebrow">Milestones</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold">A Practice Built Over Time</h2>

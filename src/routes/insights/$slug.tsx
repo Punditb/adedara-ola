@@ -43,7 +43,7 @@ function InsightDetailPage() {
   if (!post) {
     return (
       <SiteLayout>
-        <section className="container-x py-24">
+        <section data-reveal className="container-x py-24">
           <h1 className="text-3xl font-bold text-navy">Article not found</h1>
           <Link to="/insights" className="mt-6 inline-block text-primary font-semibold">
             Back to Insights

@@ -15,7 +15,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    const sections = Array.from(main.querySelectorAll("section"));
+    const sections = Array.from(
+      main.querySelectorAll("[data-reveal]")
+    );
 
     if (prefersReducedMotion) {
       sections.forEach((section) => {
@@ -63,6 +65,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+
 export function PageHero({
   eyebrow,
   title,

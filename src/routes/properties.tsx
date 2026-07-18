@@ -104,53 +104,55 @@ function PropertiesPage() {
         subtitle="A curated selection of residential, commercial and mixed-use properties across Lagos."
       />
 
-      <section className="container-x py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROPERTIES.map((p, i) => (
-            <Link
-              key={i}
-              to="/properties/$slug"
-              params={{ slug: p.slug }}
-              className="group rounded-xl overflow-hidden bg-white border border-border hover:shadow-[var(--shadow-card)] transition-all block"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  width={1024}
-                  height={768}
-                />
-                <span className="absolute top-3 left-3 rounded-md bg-primary px-2.5 py-1 text-xs font-semibold text-primary-foreground">
-                  {p.tag}
-                </span>
-              </div>
-
-              <div className="p-5">
-                <h3 className="font-display font-semibold text-lg text-navy">{p.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">
-                  <MapPin className="h-3.5 w-3.5" /> {p.location}
-                </p>
-                <p className="mt-3 text-xl font-display font-bold text-primary">{p.price}</p>
-                <div className="mt-4 pt-4 border-t border-border flex items-center gap-4 text-xs text-muted-foreground">
-                  {p.beds > 0 && (
-                    <span className="flex items-center gap-1">
-                      <Bed className="h-4 w-4" /> {p.beds}
-                    </span>
-                  )}
-                  <span className="flex items-center gap-1">
-                    <Bath className="h-4 w-4" /> {p.baths}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Maximize2 className="h-4 w-4" /> {p.area}
+      {false && (
+        <section data-reveal className="container-x py-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PROPERTIES.map((p, i) => (
+              <Link
+                key={i}
+                to="/properties/$slug"
+                params={{ slug: p.slug }}
+                className="group rounded-xl overflow-hidden bg-white border border-border hover:shadow-[var(--shadow-card)] transition-all block"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    width={1024}
+                    height={768}
+                  />
+                  <span className="absolute top-3 left-3 rounded-md bg-primary px-2.5 py-1 text-xs font-semibold text-primary-foreground">
+                    {p.tag}
                   </span>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+
+                <div className="p-5">
+                  <h3 className="font-display font-semibold text-lg text-navy">{p.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">
+                    <MapPin className="h-3.5 w-3.5" /> {p.location}
+                  </p>
+                  <p className="mt-3 text-xl font-display font-bold text-primary">{p.price}</p>
+                  <div className="mt-4 pt-4 border-t border-border flex items-center gap-4 text-xs text-muted-foreground">
+                    {p.beds > 0 && (
+                      <span className="flex items-center gap-1">
+                        <Bed className="h-4 w-4" /> {p.beds}
+                      </span>
+                    )}
+                    <span className="flex items-center gap-1">
+                      <Bath className="h-4 w-4" /> {p.baths}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Maximize2 className="h-4 w-4" /> {p.area}
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <CTASection />
     </SiteLayout>

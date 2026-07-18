@@ -31,7 +31,7 @@ function InsightsPage() {
         subtitle="Discover profitable real estate trends, market insights, and essential updates from industry leaders and policy makers."
       />
 
-      <section className="container-x py-12 md:py-16">
+      <section data-reveal className="container-x py-12 md:py-16">
         <div className="flex flex-wrap gap-2 mb-10">
           {CATS.map((c) => (
             <button

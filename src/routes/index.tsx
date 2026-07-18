@@ -128,7 +128,7 @@ function HomePage() {
       <AboutBand />
       <Services />
       <WhyUs />
-      <FeaturedProjects />
+      {/* <FeaturedProjects /> */}
       <Investor />
       <CorporateFramework />
       <Testimonials />
@@ -140,7 +140,7 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[var(--surface)] via-background to-background">
+    <section data-reveal className="relative overflow-hidden bg-gradient-to-b from-[var(--surface)] via-background to-background">
       <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{
         backgroundImage: "radial-gradient(circle at 20% 20%, var(--primary) 0%, transparent 50%)",
       }} />
@@ -199,7 +199,7 @@ function Hero() {
 
 function AboutBand() {
   return (
-    <section className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section data-reveal className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-[var(--shadow-card)]">
         <img src={teamImg} alt="Adedara Ola & Co. team reviewing development plans" loading="lazy" className="absolute inset-0 h-full w-full object-cover" width={1280} height={960} />
       </div>
@@ -236,7 +236,7 @@ function AboutBand() {
 
 function Services() {
   return (
-    <section className="bg-[var(--surface)] py-20 md:py-28">
+    <section data-reveal className="bg-[var(--surface)] py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">Our Services</span>
@@ -270,7 +270,7 @@ function Services() {
 
 function WhyUs() {
   return (
-    <section className="container-x py-20 md:py-28">
+    <section data-reveal className="container-x py-20 md:py-28">
       <div className="max-w-2xl mx-auto text-center">
         <span className="eyebrow">Why Choose Us</span>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
@@ -300,7 +300,7 @@ function WhyUs() {
 
 function FeaturedProjects() {
   return (
-    <section className="bg-[var(--surface)] py-20 md:py-28">
+    <section data-reveal className="bg-[var(--surface)] py-20 md:py-28">
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div className="max-w-2xl">
@@ -336,7 +336,7 @@ function FeaturedProjects() {
 
 function Investor() {
   return (
-    <section className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section data-reveal className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <div>
         <span className="eyebrow">For Investors</span>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
@@ -390,7 +390,7 @@ function CorporateFramework() {
   ];
   const values = ["Totality", "Quality", "Possibility", "Reliability"];
   return (
-    <section className="bg-[var(--navy)] text-white py-20 md:py-28">
+    <section data-reveal className="bg-[var(--navy)] text-white py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow text-primary">Corporate Framework</span>
@@ -426,7 +426,7 @@ function CorporateFramework() {
 
 function Testimonials() {
   return (
-    <section className="container-x py-20 md:py-28">
+    <section data-reveal className="container-x py-20 md:py-28">
       <div className="max-w-2xl mx-auto text-center">
         <span className="eyebrow">Testimonials</span>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
@@ -458,7 +458,7 @@ function Insights() {
   const posts = getLatestPosts(3);
 
   return (
-    <section className="bg-[var(--surface)] py-20 md:py-28">
+    <section data-reveal className="bg-[var(--surface)] py-20 md:py-28">
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div className="max-w-2xl">
