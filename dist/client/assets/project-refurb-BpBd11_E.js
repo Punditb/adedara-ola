@@ -1,1 +1,0 @@
-const s="/assets/project-residential-tPYWyo1a.jpg",e="/assets/project-commercial-mUi2RqxX.jpg",t="/assets/project-mixed-DwNuCAcy.jpg",a="/assets/project-refurb-CVO7x12L.jpg";export{a,e as c,t as m,s as r};
