@@ -3,9 +3,11 @@ import { useState } from "react";
 import { SiteLayout, PageHero, CTASection } from "@/components/site/Layout";
 import { TrendingUp, Shield, BarChart3, Target, Compass, Award } from "lucide-react";
 import investorsImg from "@/assets/investors.jpg";
+import { ComingSoon } from "@/components/site/ComingSoon";
+import { PAGE_VISIBLE, COMING_SOON_HEAD } from "@/lib/site-config";
 
 export const Route = createFileRoute("/investors")({
-  head: () => ({
+  head: () => !PAGE_VISIBLE.investors ? COMING_SOON_HEAD : ({
     meta: [
       { title: "Investors — Real Estate Investment Opportunities | Adedara Ola & Co." },
       { name: "description", content: "Partner with Adedara Ola & Co. to access investment-grade real estate opportunities across Nigeria. ROI optimization, risk mitigation and market expertise." },
@@ -19,6 +21,21 @@ export const Route = createFileRoute("/investors")({
 });
 
 function InvestorsPage() {
+  if (!PAGE_VISIBLE.investors) {
+    return (
+      <ComingSoon
+        eyebrow="Investors"
+        title="Investor Information Is Coming Soon"
+        message="We're preparing detailed information for investors. In the meantime, book a free consultation and we'll talk through your interests."
+        secondaryTo="/"
+        secondaryLabel="Back to Home"
+      />
+    );
+  }
+  return <InvestorsContent />;
+}
+
+function InvestorsContent() {
   return (
     <SiteLayout>
       <PageHero

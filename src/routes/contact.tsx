@@ -153,6 +153,7 @@ function ContactForm() {
               <option>Property and Facilities Management</option>
               <option>Real Estate Economics</option>
               <option>Land and Building Documentation</option>
+              <option>Investment Enquiry</option>
               <option>Other</option>
             </select>
           </div>

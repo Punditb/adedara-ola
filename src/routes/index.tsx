@@ -129,9 +129,7 @@ function HomePage() {
       <Services />
       <WhyUs />
       {/* <FeaturedProjects /> */}
-      <Investor />
       <CorporateFramework />
-      <Testimonials />
       <Insights />
       <CTASection />
     </SiteLayout>
@@ -179,18 +177,7 @@ function Hero() {
             <div className="absolute inset-0 bg-gradient-to-tr from-[var(--navy)]/30 to-transparent" />
           </div>
 
-          <div className="hidden sm:block absolute -left-6 top-12 bg-white rounded-xl shadow-[var(--shadow-card)] p-4 w-44 border border-border">
-            <p className="text-3xl font-bold text-navy font-display">20<span className="text-primary">+</span></p>
-            <p className="text-xs text-muted-foreground mt-1">Projects Completed</p>
-          </div>
-          <div className="hidden sm:block absolute -right-4 top-1/3 bg-white rounded-xl shadow-[var(--shadow-card)] p-4 w-44 border border-border">
-            <p className="text-3xl font-bold text-navy font-display">8<span className="text-primary">+</span></p>
-            <p className="text-xs text-muted-foreground mt-1">Years of Experience</p>
-          </div>
-          <div className="hidden sm:block absolute -left-4 bottom-12 bg-white rounded-xl shadow-[var(--shadow-card)] p-4 w-48 border border-border">
-            <p className="text-3xl font-bold text-navy font-display">98<span className="text-primary">%</span></p>
-            <p className="text-xs text-muted-foreground mt-1">Investor Satisfaction</p>
-          </div>
+
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { PAGE_VISIBLE } from "@/lib/site-config";
 
   export function Footer() {
 
@@ -92,7 +93,7 @@ import logo from "@/assets/logo.png";
             title="Company"
             links={[
               { to: "/about", label: "About Us" },
-              { to: "/projects", label: "Projects" },
+              ...(PAGE_VISIBLE.projects ? [{ to: "/projects", label: "Projects" }] : []),
               { to: "/insights", label: "Insights" },
               { to: "/contact", label: "Contact" },
             ]}
