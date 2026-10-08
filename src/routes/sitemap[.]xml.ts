@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { PAGE_VISIBLE } from "@/lib/site-config";
 
 const BASE_URL = "";
 
@@ -13,7 +14,7 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries: SitemapEntry[] = [
+        const allEntries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/about", changefreq: "monthly", priority: "0.8" },
           { path: "/services", changefreq: "monthly", priority: "0.9" },
@@ -23,6 +24,13 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/insights", changefreq: "weekly", priority: "0.7" },
           { path: "/contact", changefreq: "monthly", priority: "0.6" },
         ];
+
+        const hiddenPaths: string[] = [
+          ...(PAGE_VISIBLE.projects ? [] : ["/projects"]),
+          ...(PAGE_VISIBLE.investors ? [] : ["/investors"]),
+          ...(PAGE_VISIBLE.properties ? [] : ["/properties"]),
+        ];
+        const entries = allEntries.filter((e) => !hiddenPaths.includes(e.path));
 
         const urls = entries.map(
           (e) =>

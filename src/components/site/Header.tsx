@@ -2,8 +2,9 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { PAGE_VISIBLE } from "@/lib/site-config";
 
-const NAV = [
+const ALL_NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
@@ -13,6 +14,13 @@ const NAV = [
   { to: "/insights", label: "Insights" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
+const NAV = ALL_NAV.filter((item) => {
+  if (item.to === "/projects") return PAGE_VISIBLE.projects;
+  if (item.to === "/investors") return PAGE_VISIBLE.investors;
+  if (item.to === "/properties") return PAGE_VISIBLE.properties;
+  return true;
+});
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);

@@ -5,9 +5,11 @@ import residentialImg from "@/assets/project-residential.jpg";
 import commercialImg from "@/assets/project-commercial.jpg";
 import mixedImg from "@/assets/project-mixed.jpg";
 import refurbImg from "@/assets/project-refurb.jpg";
+import { ComingSoon } from "@/components/site/ComingSoon";
+import { PAGE_VISIBLE, COMING_SOON_HEAD } from "@/lib/site-config";
 
 export const Route = createFileRoute("/properties")({
-  head: () => ({
+  head: () => !PAGE_VISIBLE.properties ? COMING_SOON_HEAD : ({
     meta: [
       { title: "Properties — Available Listings | Adedara Ola & Co." },
       { name: "description", content: "Browse premium residential, commercial and mixed-use properties available through Adedara Ola & Co. in Lagos and across Nigeria." },
@@ -90,6 +92,21 @@ const PROPERTIES = [
 ];
 
 function PropertiesPage() {
+  if (!PAGE_VISIBLE.properties) {
+    return (
+      <ComingSoon
+        eyebrow="Properties"
+        title="Property Listings Are Coming Soon"
+        message="We don't have listings to show just yet. Book a free consultation to tell us what you're looking for."
+        secondaryTo="/"
+        secondaryLabel="Back to Home"
+      />
+    );
+  }
+  return <PropertiesContent />;
+}
+
+function PropertiesContent() {
   const { location } = useRouterState();
 
   if (location.pathname !== "/properties") {
