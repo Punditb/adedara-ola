@@ -14,6 +14,7 @@ import {
 export const Route = createFileRoute("/insights/$slug")({
   component: InsightDetailPage,
 });
+import { ArticleTile } from "@/components/site/BrandTile";
 
 function slugify(text: string) {
   return text
@@ -106,12 +107,8 @@ function InsightDetailPage() {
         <section className="container-x py-10 md:py-16">
           <div className="grid lg:grid-cols-[1fr_320px] gap-10 items-start">
             <div>
-              <div className="rounded-2xl overflow-hidden border border-border bg-white shadow-[var(--shadow-card)]">
-                <img
-                  src={post.img}
-                  alt={post.title}
-                  className="w-full aspect-[16/8] object-cover"
-                />
+              <div className="relative aspect-[16/8] overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)]">
+                <ArticleTile tag={post.tag} large />
               </div>
 
               <div className="mt-10 rounded-2xl bg-white border border-border p-6 md:p-10 shadow-sm">

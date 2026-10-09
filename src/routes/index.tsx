@@ -29,7 +29,7 @@ import mixedImg from "@/assets/project-mixed.jpg";
 import constructionImg from "@/assets/project-construction.jpg";
 import refurbImg from "@/assets/project-refurb.jpg";
 import infraImg from "@/assets/project-infra.jpg";
-import teamImg from "@/assets/about-team.jpg";
+import { ArticleTile, AboutPanel } from "@/components/site/BrandTile";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -152,6 +152,9 @@ function Hero() {
             Adedara Ola & Co. helps investors, developers, institutions, and property owners
             plan, develop, manage, and optimize real estate assets through expert-driven solutions.
           </p>
+          <p className="mt-5 font-display text-xl italic text-secondary">
+            ....value driven by excellence
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/book-consultation" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-primary/90 transition-all">
@@ -187,9 +190,7 @@ function Hero() {
 function AboutBand() {
   return (
     <section data-reveal className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-[var(--shadow-card)]">
-        <img src={teamImg} alt="Construction professional in a hard hat in front of a building under construction" loading="lazy" className="absolute inset-0 h-full w-full object-cover" width={1280} height={960} />
-      </div>
+      <AboutPanel />
       <div>
         <span className="eyebrow">About Us</span>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
@@ -305,7 +306,7 @@ function FeaturedProjects() {
           {PROJECTS.map((p) => (
             <article key={p.title} className="group rounded-xl overflow-hidden bg-white border border-border hover:shadow-[var(--shadow-card)] transition-all">
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={p.img} alt={p.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" width={1024} height={768} />
+                <ArticleTile tag={p.tag} />
                 <span className="absolute top-3 left-3 rounded-md bg-white/95 backdrop-blur px-2.5 py-1 text-xs font-semibold text-secondary">{p.category}</span>
                 <span className="absolute top-3 right-3 rounded-md bg-primary/95 px-2.5 py-1 text-xs font-semibold text-primary-foreground">{p.status}</span>
               </div>
@@ -472,14 +473,7 @@ function Insights() {
               className="group rounded-xl bg-white border border-border overflow-hidden hover:shadow-[var(--shadow-card)] transition-all"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={post.img}
-                  alt={post.title}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  width={1024}
-                  height={768}
-                />
+                <ArticleTile tag={post.tag} />
               </div>
 
               <div className="p-6">
