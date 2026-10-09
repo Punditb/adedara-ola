@@ -21,7 +21,6 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as InsightsIndexRouteImport } from './routes/insights/index'
 import { Route as InsightsSlugRouteImport } from './routes/insights/$slug'
-import { Route as PropertiesSlugRouteImport } from './routes/properties/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -83,11 +82,6 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => InsightsRoute,
 } as any)
-const PropertiesSlugRoute = PropertiesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => PropertiesRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -97,11 +91,10 @@ export interface FileRoutesByFullPath {
   '/insights': typeof InsightsRouteWithChildren
   '/investors': typeof InvestorsRoute
   '/projects': typeof ProjectsRoute
-  '/properties': typeof PropertiesRouteWithChildren
+  '/properties': typeof PropertiesRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/properties/$slug': typeof PropertiesSlugRoute
   '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -111,11 +104,10 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/investors': typeof InvestorsRoute
   '/projects': typeof ProjectsRoute
-  '/properties': typeof PropertiesRouteWithChildren
+  '/properties': typeof PropertiesRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/properties/$slug': typeof PropertiesSlugRoute
   '/insights': typeof InsightsIndexRoute
 }
 export interface FileRoutesById {
@@ -127,11 +119,10 @@ export interface FileRoutesById {
   '/insights': typeof InsightsRouteWithChildren
   '/investors': typeof InvestorsRoute
   '/projects': typeof ProjectsRoute
-  '/properties': typeof PropertiesRouteWithChildren
+  '/properties': typeof PropertiesRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/properties/$slug': typeof PropertiesSlugRoute
   '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRouteTypes {
@@ -148,7 +139,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/insights/$slug'
-    | '/properties/$slug'
     | '/insights/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -162,7 +152,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/insights/$slug'
-    | '/properties/$slug'
     | '/insights'
   id:
     | '__root__'
@@ -177,7 +166,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/insights/$slug'
-    | '/properties/$slug'
     | '/insights/'
   fileRoutesById: FileRoutesById
 }
@@ -189,7 +177,7 @@ export interface RootRouteChildren {
   InsightsRoute: typeof InsightsRouteWithChildren
   InvestorsRoute: typeof InvestorsRoute
   ProjectsRoute: typeof ProjectsRoute
-  PropertiesRoute: typeof PropertiesRouteWithChildren
+  PropertiesRoute: typeof PropertiesRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -280,13 +268,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof InsightsRoute
     }
-    '/properties/$slug': {
-      id: '/properties/$slug'
-      path: '/$slug'
-      fullPath: '/properties/$slug'
-      preLoaderRoute: typeof PropertiesSlugRouteImport
-      parentRoute: typeof PropertiesRoute
-    }
   }
 }
 
@@ -304,18 +285,6 @@ const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
   InsightsRouteChildren,
 )
 
-interface PropertiesRouteChildren {
-  PropertiesSlugRoute: typeof PropertiesSlugRoute
-}
-
-const PropertiesRouteChildren: PropertiesRouteChildren = {
-  PropertiesSlugRoute: PropertiesSlugRoute,
-}
-
-const PropertiesRouteWithChildren = PropertiesRoute._addFileChildren(
-  PropertiesRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -324,7 +293,7 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsRoute: InsightsRouteWithChildren,
   InvestorsRoute: InvestorsRoute,
   ProjectsRoute: ProjectsRoute,
-  PropertiesRoute: PropertiesRouteWithChildren,
+  PropertiesRoute: PropertiesRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

@@ -28,7 +28,7 @@ function AboutPage() {
 
       <section data-reveal className="container-x py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
         <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-[var(--shadow-card)]">
-          <img src={teamImg} alt="Adedara Ola & Co. team" loading="lazy" className="h-full w-full object-cover" width={1280} height={960} />
+          <img src={teamImg} alt="Construction professional in a hard hat in front of a building under construction" loading="lazy" className="h-full w-full object-cover" width={1280} height={960} />
         </div>
         <div>
           <span className="eyebrow">Our Story</span>

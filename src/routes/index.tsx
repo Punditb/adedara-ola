@@ -173,7 +173,7 @@ function Hero() {
 
         <div className="relative">
           <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-card)] aspect-[5/6]">
-            <img src={heroImg} alt="Modern real estate development by Adedara Ola & Co." className="absolute inset-0 h-full w-full object-cover" width={1024} height={1280} />
+            <img src={heroImg} alt="Modern buildings with landscaped grounds" className="absolute inset-0 h-full w-full object-cover" width={1024} height={1280} />
             <div className="absolute inset-0 bg-gradient-to-tr from-[var(--navy)]/30 to-transparent" />
           </div>
 
@@ -188,7 +188,7 @@ function AboutBand() {
   return (
     <section data-reveal className="container-x py-20 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-[var(--shadow-card)]">
-        <img src={teamImg} alt="Adedara Ola & Co. team reviewing development plans" loading="lazy" className="absolute inset-0 h-full w-full object-cover" width={1280} height={960} />
+        <img src={teamImg} alt="Construction professional in a hard hat in front of a building under construction" loading="lazy" className="absolute inset-0 h-full w-full object-cover" width={1280} height={960} />
       </div>
       <div>
         <span className="eyebrow">About Us</span>
