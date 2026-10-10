@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { PAGE_VISIBLE } from "@/lib/site-config";
 
@@ -78,18 +78,6 @@ export function Footer() {
           {subscribeMessage && (
             <p className="mt-2 text-xs text-white/70">{subscribeMessage}</p>
           )}
-          <div className="mt-6 flex gap-3">
-            {[Facebook, Linkedin, Instagram, Twitter].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                aria-label="Social link"
-                className="h-9 w-9 rounded-md border border-white/15 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
         </div>
 
         <FooterCol
@@ -123,14 +111,12 @@ export function Footer() {
               <Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
               <span>
                 <a href="tel:+2347038088610" className="block hover:text-white">+234 703 808 8610</a>
-                <a href="tel:+2348035204149" className="block hover:text-white">+234 803 520 4149</a>
               </span>
             </li>
             <li className="flex gap-3">
               <Mail className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
               <span>
                 <a href="mailto:adedaraolaproperties@gmail.com" className="block hover:text-white text-xs">adedaraolaproperties@gmail.com</a>
-                <a href="mailto:olaadedarabrand@gmail.com" className="block hover:text-white text-xs">olaadedarabrand@gmail.com</a>
               </span>
             </li>
           </ul>
@@ -139,11 +125,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/60">
-          <p>© {new Date().getFullYear()} Adedara Ola & Co. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link to="/" className="hover:text-white">Privacy Policy</Link>
-            <Link to="/" className="hover:text-white">Terms & Conditions</Link>
-          </div>
+          <p>© {new Date().getFullYear()} Adedara Ola & Co. · RC 7192962 · All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -57,6 +57,23 @@ export const Route = createFileRoute("/")({
           },
           telephone: "+234-703-808-8610",
           email: "adedaraolaproperties@gmail.com",
+          foundingDate: "2022",
+          slogan: "....value driven by excellence",
+          identifier: "RC 7192962",
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              opens: "09:00",
+              closes: "18:00",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: "Saturday",
+              opens: "10:00",
+              closes: "14:00",
+            },
+          ],
         }),
       },
     ],
