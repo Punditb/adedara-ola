@@ -32,11 +32,9 @@ function ContactPage() {
           <Info icon={MapPin} title="Office" lines={["42, Ola Street, Itire,", "Surulere, Lagos, Nigeria"]} />
           <Info icon={Phone} title="Phone" lines={[
             <a key="1" href="tel:+2347038088610" className="hover:text-primary">+234 703 808 8610</a>,
-            <a key="2" href="tel:+2348035204149" className="hover:text-primary">+234 803 520 4149</a>,
           ]} />
           <Info icon={Mail} title="Email" lines={[
             <a key="1" href="mailto:adedaraolaproperties@gmail.com" className="hover:text-primary break-all">adedaraolaproperties@gmail.com</a>,
-            <a key="2" href="mailto:olaadedarabrand@gmail.com" className="hover:text-primary break-all">olaadedarabrand@gmail.com</a>,
           ]} />
           <Info icon={Clock} title="Business Hours" lines={["Mon – Fri: 9:00 – 18:00", "Sat: 10:00 – 14:00", "Sun: Closed"]} />
         </div>
@@ -46,7 +44,7 @@ function ContactPage() {
         <div className="rounded-2xl overflow-hidden border border-border aspect-[16/7] bg-muted">
           <iframe
             title="Office location map"
-            src="https://www.google.com/maps?q=Surulere,Lagos&output=embed"
+            src="https://www.google.com/maps?q=42+Ola+Street,+Itire,+Surulere,+Lagos,+Nigeria&output=embed"
             className="h-full w-full"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

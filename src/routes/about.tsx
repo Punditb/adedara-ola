@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero, CTASection } from "@/components/site/Layout";
 import { Target, Eye, Compass, Shield, CheckCircle2 } from "lucide-react";
-import teamImg from "@/assets/about-team.jpg";
+import { AboutPanel } from "@/components/site/BrandTile";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -27,9 +27,7 @@ function AboutPage() {
       />
 
       <section data-reveal className="container-x py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-[var(--shadow-card)]">
-          <img src={teamImg} alt="Adedara Ola & Co. team" loading="lazy" className="h-full w-full object-cover" width={1280} height={960} />
-        </div>
+        <AboutPanel />
         <div>
           <span className="eyebrow">Our Story</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold">Turning Vision Into Valuable Real Estate Assets</h2> <br></br>

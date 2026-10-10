@@ -1,6 +1,4 @@
-import sustainableValueImg from "@/assets/insights/real-estate-value.jpg";
-import economicsImg from "@/assets/insights/real-estate-economics.jpg";
-import constructionImg from "@/assets/insights/project-construction-site.jpg";
+
 
 export const CATS = [
   "All",
@@ -24,7 +22,7 @@ export const POSTS = [
     dateISO: "2026-06-29",
     author: "Adedara Ola & Co.",
     readTime: "7 min read",
-    img: sustainableValueImg,
+    
     content: [
       {
         type: "paragraph",
@@ -312,7 +310,7 @@ export const POSTS = [
     dateISO: "2026-06-30",
     author: "Adedara Ola & Co.",
     readTime: "5 min read",
-    img: economicsImg,
+    
     content: [
       {
         type: "paragraph",
@@ -634,7 +632,7 @@ export const POSTS = [
     dateISO: "2026-07-01",
     author: "Adedara Ola & Co.",
     readTime: "4 min read",
-    img: constructionImg,
+    
     content: [
       {
         type: "paragraph",
