@@ -19,6 +19,8 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as PropertiesRouteImport } from './routes/properties'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as AssociatesIndexRouteImport } from './routes/associates/index'
+import { Route as AssociatesStage2RouteImport } from './routes/associates/stage-2'
 import { Route as InsightsIndexRouteImport } from './routes/insights/index'
 import { Route as InsightsSlugRouteImport } from './routes/insights/$slug'
 
@@ -72,6 +74,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AssociatesIndexRoute = AssociatesIndexRouteImport.update({
+  id: '/associates/',
+  path: '/associates/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssociatesStage2Route = AssociatesStage2RouteImport.update({
+  id: '/associates/stage-2',
+  path: '/associates/stage-2',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InsightsIndexRoute = InsightsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -94,7 +106,9 @@ export interface FileRoutesByFullPath {
   '/properties': typeof PropertiesRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/associates/stage-2': typeof AssociatesStage2Route
   '/insights/$slug': typeof InsightsSlugRoute
+  '/associates/': typeof AssociatesIndexRoute
   '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -107,7 +121,9 @@ export interface FileRoutesByTo {
   '/properties': typeof PropertiesRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/associates/stage-2': typeof AssociatesStage2Route
   '/insights/$slug': typeof InsightsSlugRoute
+  '/associates': typeof AssociatesIndexRoute
   '/insights': typeof InsightsIndexRoute
 }
 export interface FileRoutesById {
@@ -122,7 +138,9 @@ export interface FileRoutesById {
   '/properties': typeof PropertiesRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/associates/stage-2': typeof AssociatesStage2Route
   '/insights/$slug': typeof InsightsSlugRoute
+  '/associates/': typeof AssociatesIndexRoute
   '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRouteTypes {
@@ -138,7 +156,9 @@ export interface FileRouteTypes {
     | '/properties'
     | '/services'
     | '/sitemap.xml'
+    | '/associates/stage-2'
     | '/insights/$slug'
+    | '/associates/'
     | '/insights/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -151,7 +171,9 @@ export interface FileRouteTypes {
     | '/properties'
     | '/services'
     | '/sitemap.xml'
+    | '/associates/stage-2'
     | '/insights/$slug'
+    | '/associates'
     | '/insights'
   id:
     | '__root__'
@@ -165,7 +187,9 @@ export interface FileRouteTypes {
     | '/properties'
     | '/services'
     | '/sitemap.xml'
+    | '/associates/stage-2'
     | '/insights/$slug'
+    | '/associates/'
     | '/insights/'
   fileRoutesById: FileRoutesById
 }
@@ -180,6 +204,8 @@ export interface RootRouteChildren {
   PropertiesRoute: typeof PropertiesRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AssociatesStage2Route: typeof AssociatesStage2Route
+  AssociatesIndexRoute: typeof AssociatesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -254,6 +280,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/associates/': {
+      id: '/associates/'
+      path: '/associates'
+      fullPath: '/associates/'
+      preLoaderRoute: typeof AssociatesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/associates/stage-2': {
+      id: '/associates/stage-2'
+      path: '/associates/stage-2'
+      fullPath: '/associates/stage-2'
+      preLoaderRoute: typeof AssociatesStage2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/': {
       id: '/insights/'
       path: '/'
@@ -296,6 +336,8 @@ const rootRouteChildren: RootRouteChildren = {
   PropertiesRoute: PropertiesRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AssociatesStage2Route: AssociatesStage2Route,
+  AssociatesIndexRoute: AssociatesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
