@@ -231,8 +231,7 @@ export function DataNotice() {
         We collect the details you enter here, and any documents you upload at Stage 2, to assess your application to
         join the Adedara Ola & Co. Real Estate Associate Platform and to contact you about it. They are seen only by
         people at Adedara Ola & Co. who have access to our application records. If we do not take your application
-        forward, we delete your details within 3 days of that decision. If you are admitted, we keep your details for as
-        long as you remain on the platform. To ask about or correct your information, email
+        forward, we delete your details within 3 days of that decision. If you are invited to Stage 2 but do not complete it within 30 days, we delete your details. If you are admitted, we keep your details for as long as you remain on the platform. To ask about or correct your information, email
         adedaraolaproperties@gmail.com. Our full Privacy Policy is coming soon.
       </p>
     </div>
