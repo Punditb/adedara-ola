@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/associate-cleanup",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}
