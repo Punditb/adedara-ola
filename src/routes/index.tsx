@@ -20,6 +20,7 @@ import { SiteLayout, CTASection } from "@/components/site/Layout";
 import { ArticleTile, AboutPanel } from "@/components/site/BrandTile";
 import { getLatestPosts } from "@/lib/insights";
 import heroImg from "@/assets/hero.jpg";
+import { Testimonials } from "@/components/site/Testimonials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -152,6 +153,7 @@ function HomePage() {
       <AboutBand />
       <Services />
       <TrackRecord />
+      <Testimonials />
       <WhyUs />
       <AssociatesBand />
       <CorporateFramework />

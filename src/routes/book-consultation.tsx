@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 import { CalendarCheck, MessageSquareText, FileText, Clock } from "lucide-react";
+import { Testimonials } from "@/components/site/Testimonials";
 
 export const Route = createFileRoute("/book-consultation")({
     head: () => ({
@@ -59,6 +60,8 @@ function BookConsultationPage() {
                     ))}
                 </div>
             </section>
+
+            <Testimonials compact />
 
             <section data-reveal className="container-x py-12 md:py-16">
                 <div className="rounded-2xl overflow-hidden border border-border bg-white shadow-[var(--shadow-card)]">
