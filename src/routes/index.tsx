@@ -417,42 +417,29 @@ function AssociatesBand() {
 }
 
 function CorporateFramework() {
-  const cards = [
-    { icon: Eye, t: "Vision", d: "To become Africa’s premier platform-institution, creating multi-dimensional possibilities for real estate practitioners to function effectively and efficiently." },
-    { icon: Target, t: "Mission", d: "To constantly review and improve our platform's capabilities, enabling real estate ecosystem practitioners to maximize dividends, progress, and development." },
-    { icon: Shield, t: "Governance", d: "Determined to make a significant difference, we believe strongly in the principles of impact that should govern our behavior within the communities we seek to reshape." },
-    { icon: Compass, t: "Objectives", d: "To drive real estate growth through cutting-edge innovation, investment opportunities, infrastructure development, and reduced risks for lasting value." },
-  ];
   const values = ["Totality", "Quality", "Possibility", "Reliability"];
   return (
     <section data-reveal className="bg-[var(--navy)] text-white py-20 md:py-28">
-      <div className="container-x">
-        <div className="max-w-2xl">
-          <span className="eyebrow text-primary">Corporate Framework</span>
+      <div className="container-x grid gap-10 lg:grid-cols-[1.3fr,1fr] items-center">
+        <div>
+          <span className="eyebrow text-primary">Our Vision</span>
           <h2 className="mt-3 text-white text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-            Principles That Anchor Every Decision
+            One Platform. One Standard. Endless Possibilities.
           </h2>
+          <p className="mt-5 text-lg text-white/75 leading-relaxed">
+            Our vision is to become Africa’s premier platform-institution, where real estate practitioners can work
+            effectively and efficiently, and clients can build with confidence.
+          </p>
+          <Link to="/about" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary hover:gap-3 transition-all">
+            Read our full vision, mission and objectives <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {cards.map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-xl bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition-colors">
-              <Icon className="h-7 w-7 text-primary" />
-              <p className="mt-4 font-display font-semibold text-white text-lg">{t}</p>
-              <p className="mt-2 text-sm text-white/70 leading-relaxed">{d}</p>
+        <div className="grid grid-cols-2 gap-4">
+          {values.map((v) => (
+            <div key={v} className="rounded-lg bg-primary/10 border border-primary/30 px-5 py-6 text-center">
+              <p className="font-display text-white text-xl font-semibold">{v}</p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 pt-12 border-t border-white/10">
-          <p className="eyebrow text-primary">Core Values</p>
-          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {values.map((v) => (
-              <div key={v} className="rounded-lg bg-primary/10 border border-primary/30 px-5 py-6 text-center">
-                <p className="font-display text-white text-xl font-semibold">{v}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
