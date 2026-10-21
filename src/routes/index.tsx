@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
             addressCountry: "NG",
           },
           telephone: "+234-703-808-8610",
-          email: "adedaraolaproperties@gmail.com",
+          email: "info@adedaraolaandco.com",
           foundingDate: "2022",
           slogan: "....value driven by excellence",
           identifier: "RC 7192962",

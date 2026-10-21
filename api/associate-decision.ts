@@ -10,7 +10,7 @@ const SITE_URL =
     process.env.VERCEL_ENV === "production" || !process.env.VERCEL_URL
         ? "https://www.adedaraolaandco.com"
         : `https://${process.env.VERCEL_URL}`;
-const SIGN_OFF = "Kind regards,\nAdedara Ola & Co.\nadedaraolaproperties@gmail.com";
+const SIGN_OFF = "Kind regards,\nAdedara Ola & Co.\nassociates@adedaraolaandco.com";
 
 type Decision = "invite" | "decline" | "admit" | "reject";
 
