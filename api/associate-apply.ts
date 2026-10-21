@@ -146,7 +146,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             await resend.emails.send({
                 from: "Adedara Ola & Co. <noreply@adedaraolaandco.com>",
                 to: email,
-                replyTo: CEO_EMAIL,
+                replyTo: "associates@adedaraolaandco.com",
                 subject: "We have received your application",
                 html: `
           <div style="font-family:Arial,sans-serif;font-size:14px;color:#222;max-width:600px">
@@ -155,7 +155,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <p>Our founder reviews every application personally. You can expect a reply within <strong>5 business days</strong>. If your preliminary details are a good fit, we will email you instructions to continue to Stage 2.</p>
             <p>Please note that applying does not guarantee admission to the platform, and admission does not guarantee any particular project or payment.</p>
             <p>If we do not take your application forward, we delete your details within 3 days of that decision.</p>
-            <p>Kind regards,<br>Adedara Ola &amp; Co.<br>adedaraolaproperties@gmail.com</p>
+            <p>Kind regards,<br>Adedara Ola &amp; Co.<br>associates@adedaraolaandco.com</p>
           </div>
         `,
             });

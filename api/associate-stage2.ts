@@ -210,14 +210,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             await resend.emails.send({
                 from: "Adedara Ola & Co. <noreply@adedaraolaandco.com>",
                 to: app.email,
-                replyTo: CEO_EMAIL,
+                replyTo: "associates@adedaraolaandco.com",
                 subject: "We have received your Stage 2 application",
                 html: `
           <div style="font-family:Arial,sans-serif;font-size:14px;color:#222;max-width:600px">
             <p>Dear ${esc(String(app.full_name).split(" ")[0])},</p>
             <p>Thank you for completing Stage 2 of your application to the <strong>Adedara Ola &amp; Co. Real Estate Associate Platform</strong>. Our founder will review it and we will be in touch by email.</p>
             <p>Please note that admission to the platform does not guarantee any particular project or payment.</p>
-            <p>Kind regards,<br>Adedara Ola &amp; Co.<br>adedaraolaproperties@gmail.com</p>
+            <p>Kind regards,<br>Adedara Ola &amp; Co.<br>associates@adedaraolaandco.com</p>
           </div>
         `,
             });

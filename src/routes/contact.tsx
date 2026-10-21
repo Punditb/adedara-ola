@@ -7,7 +7,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Adedara Ola & Co. — Real Estate Developers Lagos" },
-      { name: "description", content: "Reach Adedara Ola & Co. at 42 Ola Street, Itire, Surulere, Lagos. Phone +234 703 808 8610. Email adedaraolaproperties@gmail.com." },
+      { name: "description", content: "Reach Adedara Ola & Co. at 42 Ola Street, Itire, Surulere, Lagos. Phone +234 703 808 8610. Email info@adedaraolaandco.com." },
       { property: "og:title", content: "Contact Adedara Ola & Co." },
       { property: "og:description", content: "Get in touch with our real estate development team in Lagos." },
       { property: "og:url", content: "/contact" },
@@ -34,7 +34,7 @@ function ContactPage() {
             <a key="1" href="tel:+2347038088610" className="hover:text-primary">+234 703 808 8610</a>,
           ]} />
           <Info icon={Mail} title="Email" lines={[
-            <a key="1" href="mailto:adedaraolaproperties@gmail.com" className="hover:text-primary break-all">adedaraolaproperties@gmail.com</a>,
+            <a key="1" href="mailto:info@adedaraolaandco.com" className="hover:text-primary break-all">info@adedaraolaandco.com</a>,
           ]} />
           <Info icon={Clock} title="Business Hours" lines={["Mon – Fri: 9:00 – 18:00", "Sat: 10:00 – 14:00", "Sun: Closed"]} />
         </div>
