@@ -1,9 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SERVICE_DETAILS } from "@/lib/services";
 import { SiteLayout, PageHero, CTASection } from "@/components/site/Layout";
-import { ClipboardCheck, Hammer, Wrench, TrendingUp, Building2, ChevronDown, DraftingCompass, Cuboid, Zap, Landmark, Handshake } from "lucide-react";
+import { ClipboardCheck, Hammer, Wrench, TrendingUp, Building2, ChevronDown, DraftingCompass, Cuboid, Zap, Landmark, Handshake, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
-export const Route = createFileRoute("/services")({
+export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Services — Real Estate Development, Planning & Consultancy | Adedara Ola & Co." },
@@ -21,44 +22,13 @@ const SERVICES = [
   {
     icon: ClipboardCheck,
     title: "Project Planning",
-    desc: "We provide the best Project Planning services for your real estate development needs by establishing the most suitable land use, building parameters, space allocations, and development possibilities in line with regulatory requirements and project objectives.",
+    desc: "We provide top-notch Project Planning services for your real estate development needs by establishing the most suitable land use, building parameters, space allocations, and development possibilities in line with regulatory requirements and project objectives.",
     benefits: ["Maximized land potential", "Regulatory alignment", "Clear project direction", "Lower planning risk"],
     process: ["Site assessment", "Feasibility analysis", "Space planning", "Development roadmap"],
     faqs: [
       { q: "What is project planning in real estate development?", a: "It determines what can be built on a site, how space should be utilized, and the requirements needed for successful development." },
       { q: "Can you help if I am unsure what to build?", a: "Yes. We evaluate your land, goals, and market opportunities to recommend suitable development options." },
       { q: "What makes your planning approach different?", a: "We combine feasibility, regulatory compliance, and value creation to ensure every project starts on a solid foundation and ends as a landmark address." }
-    ],
-  },
-  {
-    icon: Hammer,
-    title: "Project Construction",
-    desc: "Ours are the best Project Construction services for your development needs, transforming approved concepts and designs into quality structures in accordance with project specifications, site conditions, and industry standards.",
-    benefits: [
-      "Quality execution",
-      "Site-specific solutions",
-      "Construction oversight",
-      "Project durability",
-    ],
-    process: [
-      "Design review",
-      "Site evaluation",
-      "Construction execution",
-      "Project delivery",
-    ],
-    faqs: [
-      {
-        q: "What does project construction involve?",
-        a: "It is the process of transforming approved concepts and designs into completed structures through proper site execution and supervision.",
-      },
-      {
-        q: "Can construction details change after designs are prepared?",
-        a: "Yes. Certain adjustments may be required to accommodate site conditions while preserving the project's objectives and quality standards.",
-      },
-      {
-        q: "Do you supervise construction activities?",
-        a: "Yes. We oversee construction processes to ensure compliance with specifications, quality requirements, and project expectations.",
-      },
     ],
   },
   {
@@ -93,72 +63,6 @@ const SERVICES = [
       {
         q: "What is your refurbishment approach?",
         a: "We focus on practical improvements that enhance durability, functionality, aesthetics, and overall property performance.",
-      },
-    ],
-  },
-  {
-    icon: TrendingUp,
-    title: "Real Estate Economics",
-    desc: "We provide the best Real Estate Economics advice and directions for your real estate investments and developmental needs in such a manner that it offers you the superior edge in proper planning and implementations of projects.",
-    benefits: [
-      "Better investment decisions",
-      "Balanced project economics",
-      "Improved return potential",
-      "Reduced financial risk",
-    ],
-    process: [
-      "Project evaluation",
-      "Cost analysis",
-      "Return assessment",
-      "Investment guidance",
-    ],
-    faqs: [
-      {
-        q: "What is Real Estate Economics?",
-        a: "It is the process of evaluating development costs and expected returns to guide better real estate investment decisions.",
-      },
-      {
-        q: "Can it improve project profitability?",
-        a: "Yes. It helps identify development approaches that can deliver stronger returns without unnecessary expenditure.",
-      },
-      {
-        q: "Can you help assess a proposed development idea?",
-        a: "Yes. We evaluate project feasibility, market potential, development costs, and expected performance.",
-      },
-    ],
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Land and Building Documentation",
-    desc: "We handle the entire approval and documentation process, securing the permits and authorizations required to give your development a firm legal foundation and a smooth path to execution.",
-    benefits: [
-      "Regulatory compliance",
-      "Approval support",
-      "Reduced project delays",
-      "Proper documentation",
-    ],
-    process: [
-      "Document review",
-      "Approval planning",
-      "Application processing",
-      "Permit documentation",
-    ],
-    faqs: [
-      {
-        q: "Why are building approvals important?",
-        a: "They ensure proposed developments comply with planning regulations and applicable development standards.",
-      },
-      {
-        q: "Do you assist with LASPPPA approvals?",
-        a: "Yes. We guide clients through the documentation and approval process required by relevant planning authorities.",
-      },
-      {
-        q: "What documents are typically required?",
-        a: "Requirements vary by project, but generally include property documents, survey plans, drawings, and supporting applications.",
-      },
-      {
-        q: "What is your role in the approval process?",
-        a: "We coordinate documentation, monitor application progress, and help clients navigate regulatory requirements efficiently.",
       },
     ],
   },
@@ -375,8 +279,37 @@ function ServicesPage() {
         title="A Full-Spectrum Real Estate Practice"
         subtitle="A variety of integrated services that cover the entire lifecycle of a property, from first concept to long-term management."
       />
-
+      <section data-reveal className="container-x pt-16 md:pt-24">
+        <span className="eyebrow">Core services</span>
+        <h2 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">Where we are strongest</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {SERVICE_DETAILS.map((service) => {
+            const Icon = service.icon;
+            return (
+              <Link
+                key={service.slug}
+                to="/services/$slug"
+                params={{ slug: service.slug }}
+                className="group rounded-xl border border-border bg-white p-8 transition-all hover:-translate-y-1 hover:border-primary hover:shadow-[var(--shadow-card)]"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Icon className="h-7 w-7" />
+                </div>
+                <h3 className="mt-5 font-display text-xl font-semibold text-navy">{service.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.summary}</p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-all group-hover:gap-2.5">
+                  Learn more <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
       <div className="container-x py-16 md:py-24 space-y-20">
+        <div>
+          <span className="eyebrow">More services</span>
+          <h2 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">The rest of the practice</h2>
+        </div>
         {SERVICES.map((s, i) => (
           <ServiceBlock key={s.title} service={s} reverse={i % 2 === 1} />
         ))}

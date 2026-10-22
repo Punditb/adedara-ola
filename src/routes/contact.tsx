@@ -143,6 +143,7 @@ function ContactForm() {
             >
               <option>Project Planning</option>
               <option>Project Construction</option>
+              <option>Refurbishment</option>
               <option>Architectural Concepts, Planning and Drawings</option>
               <option>3D Designs and Animations</option>
               <option>Mechanical and Electrical Solutions</option>

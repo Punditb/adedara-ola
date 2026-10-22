@@ -92,10 +92,10 @@ export function Footer() {
         <FooterCol
           title="Services"
           links={[
-            { to: "/services", label: "Project Planning" },
-            { to: "/services", label: "Construction" },
-            { to: "/services", label: "Refurbishment" },
-            { to: "/services", label: "Property Maintenance" },
+            { to: "/services/real-estate-economics", label: "Real Estate Economics" },
+            { to: "/services/land-and-building-documentation", label: "Land and Building Documentation" },
+            { to: "/services/project-construction", label: "Project Construction" },
+            { to: "/services", label: "All Services" },
           ]}
         />
         <div>

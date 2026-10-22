@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type {} from "@tanstack/react-start";
+import type { } from "@tanstack/react-start";
 import { PAGE_VISIBLE } from "@/lib/site-config";
 
 const BASE_URL = "";
@@ -18,6 +18,9 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/about", changefreq: "monthly", priority: "0.8" },
           { path: "/services", changefreq: "monthly", priority: "0.9" },
+          { path: "/services/real-estate-economics", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/land-and-building-documentation", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/project-construction", changefreq: "monthly", priority: "0.8" },
           { path: "/projects", changefreq: "weekly", priority: "0.8" },
           { path: "/investors", changefreq: "monthly", priority: "0.9" },
           { path: "/properties", changefreq: "weekly", priority: "0.8" },

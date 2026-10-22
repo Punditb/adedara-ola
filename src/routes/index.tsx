@@ -21,6 +21,7 @@ import { ArticleTile, AboutPanel } from "@/components/site/BrandTile";
 import { getLatestPosts } from "@/lib/insights";
 import heroImg from "@/assets/hero.jpg";
 import { Testimonials } from "@/components/site/Testimonials";
+import { sortUserPlugins } from "vite";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -86,16 +87,19 @@ const CORE_SERVICES = [
     icon: TrendingUp,
     title: "Real Estate Economics",
     desc: "Market-informed economics advice that gives your investment and development decisions a firm footing before money is committed.",
+    slug: "real-estate-economics",
   },
   {
     icon: FileText,
     title: "Land and Building Documentation",
     desc: "We manage the approvals and documentation process, securing the permits and authorizations that give your development a firm legal foundation.",
+    slug: "land-and-building-documentation",
   },
   {
     icon: Hammer,
     title: "Project Construction",
     desc: "We turn approved designs into quality structures, in line with project specifications, site conditions and industry standards.",
+    slug: "project construction",
   },
 ];
 
@@ -283,7 +287,7 @@ function Services() {
         </div>
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {CORE_SERVICES.map(({ icon: Icon, title, desc }) => (
+          {CORE_SERVICES.map(({ icon: Icon, title, desc, slug }) => (
             <div
               key={title}
               className="group rounded-xl bg-white border border-border p-8 hover:border-primary hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition-all"
@@ -294,7 +298,7 @@ function Services() {
               <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Core service</p>
               <h3 className="mt-2 text-xl font-display font-semibold text-navy">{title}</h3>
               <p className="mt-3 text-muted-foreground text-sm leading-relaxed">{desc}</p>
-              <Link to="/services" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-2.5 transition-all">
+              <Link to="/services/$slug" params={{ slug }} className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-2.5 transition-all">
                 Learn more <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
