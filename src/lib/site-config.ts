@@ -2,7 +2,7 @@
 // While false, a page shows "Coming soon", is left out of the menu,
 // footer and sitemap, and is hidden from search engines.
 export const PAGE_VISIBLE: Record<"projects" | "investors" | "properties", boolean> = {
-  projects: false,
+  projects: true,
   investors: false,
   properties: false,
 };
