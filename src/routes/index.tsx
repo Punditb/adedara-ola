@@ -19,9 +19,9 @@ import {
 import { SiteLayout, CTASection } from "@/components/site/Layout";
 import { ArticleTile, AboutPanel } from "@/components/site/BrandTile";
 import { getLatestPosts } from "@/lib/insights";
-import heroImg from "@/assets/hero.jpg";
 import { Testimonials } from "@/components/site/Testimonials";
 import { sortUserPlugins } from "vite";
+import { PROJECTS, imageUrl } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -156,6 +156,7 @@ function HomePage() {
       <Hero />
       <AboutBand />
       <Services />
+      <OurWork />
       <TrackRecord />
       <Testimonials />
       <WhyUs />
@@ -221,13 +222,21 @@ function Hero() {
         <div className="relative">
           <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-card)] aspect-[5/6]">
             <img
-              src={heroImg}
-              alt="Modern buildings with landscaped grounds"
+              src="/images/projects/apartment-oshodi/exterior-dusk-large.webp"
+              alt="Dusk view of our 17-unit apartment building in Oshodi, Lagos"
               className="absolute inset-0 h-full w-full object-cover"
-              width={1024}
-              height={1280}
+              fetchPriority="high"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-[var(--navy)]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+              <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] backdrop-blur">
+                Under construction
+              </span>
+              <p className="mt-2 font-display text-lg font-semibold leading-snug">17-Unit Apartment Building, Oshodi</p>
+              <p className="text-xs text-white/75">
+                3D Visualisation. The completed building may differ slightly in details.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -318,6 +327,53 @@ function Services() {
             View all services <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function OurWork() {
+  return (
+    <section data-reveal className="container-x py-20 md:py-28">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-2xl">
+          <span className="eyebrow">Our Work</span>
+          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            Designed, Planned and Built by Our Team
+          </h2>
+        </div>
+        <Link to="/projects" className="inline-flex items-center gap-2 self-start font-semibold text-primary md:self-end">
+          All projects <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        {PROJECTS.map((project) => (
+          <Link
+            key={project.slug}
+            to="/projects"
+            hash={project.slug}
+            className="group relative block overflow-hidden rounded-2xl shadow-[var(--shadow-card)]"
+          >
+            <div className="relative aspect-[4/3]">
+              <img
+                src={imageUrl(project.slug, project.images[0].file, "small")}
+                alt={project.images[0].alt}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+              <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-navy">
+                {project.status}
+              </span>
+              <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                <p className="font-display text-xl font-semibold leading-snug md:text-2xl">{project.title}</p>
+                <p className="mt-1 text-sm text-white/80">{project.location}</p>
+                <p className="mt-2 text-[11px] text-white/60">3D Visualisation</p>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );
