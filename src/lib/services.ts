@@ -13,6 +13,7 @@ export type ServiceDetail = {
   benefits: string[];
   faqs: { q: string; a: string }[];
   relatedTags: string[];
+  photos?: { project: string; file: string; alt: string; caption: string }[];
 };
 
 export const SERVICE_DETAILS: ServiceDetail[] = [
@@ -169,6 +170,26 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       },
     ],
     relatedTags: ["Construction", "Real Estate Development"],
+    photos: [
+      {
+        project: "apartment-oshodi",
+        file: "progress-frame",
+        alt: "Concrete frame of the apartment building rising",
+        caption: "The concrete frame rising on our Oshodi development",
+      },
+      {
+        project: "apartment-oshodi",
+        file: "progress-columns-1",
+        alt: "Column formwork and reinforcement on the upper floor slab",
+        caption: "Column formwork and reinforcement on an upper floor",
+      },
+      {
+        project: "apartment-oshodi",
+        file: "progress-slab",
+        alt: "Cast floor slab with column reinforcement bars for the next level",
+        caption: "A cast slab, with column reinforcement ready for the next level",
+      },
+    ],
   },
 ];
 

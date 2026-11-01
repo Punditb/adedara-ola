@@ -5,6 +5,7 @@ import { SiteLayout, PageHero, CTASection } from "@/components/site/Layout";
 import { ArticleTile } from "@/components/site/BrandTile";
 import { getServiceDetail } from "@/lib/services";
 import { getLatestPosts } from "@/lib/insights";
+import { imageUrl } from "@/lib/projects";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -89,6 +90,35 @@ function ServiceDetailPage() {
           </div>
         </div>
       </section>
+
+      {service.photos && service.photos.length > 0 && (
+        <section data-reveal className="container-x py-16 md:py-20">
+          <span className="eyebrow">On our sites</span>
+          <h2 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">Construction in progress</h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {service.photos.map((photo) => (
+              <figure key={photo.file} className="overflow-hidden rounded-xl border border-border bg-white">
+                <div className="relative aspect-[4/3]">
+                  <img
+                    src={imageUrl(photo.project, photo.file, "small")}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="p-4 text-sm text-muted-foreground">{photo.caption}. Site photo, September 2026.</figcaption>
+              </figure>
+            ))}
+          </div>
+          <Link
+            to="/projects"
+            hash="apartment-oshodi"
+            className="mt-8 inline-flex items-center gap-2 font-semibold text-primary hover:gap-3 transition-all"
+          >
+            See the full project <ArrowRight className="h-4 w-4" />
+          </Link>
+        </section>
+      )}
 
       <section data-reveal className="container-x py-16 md:py-20">
         <span className="eyebrow">Benefits</span>

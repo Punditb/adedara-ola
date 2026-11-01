@@ -87,6 +87,15 @@ function ProjectsPage() {
                   " Images marked “AI-enhanced” are artist’s impressions."}
               </p>
             </div>
+            {project.progress && project.progress.length > 0 && (
+              <div className="mt-12">
+                <h3 className="font-display text-xl font-semibold text-navy">Site progress, September 2026</h3>
+                <p className="mt-2 text-sm text-muted-foreground">Photographs from the site as the structure rises.</p>
+                <div className="mt-5">
+                  <Gallery slug={project.slug} images={project.progress} uniform />
+                </div>
+              </div>
+            )}
           </div>
         </section>
       ))}
