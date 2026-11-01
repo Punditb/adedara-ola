@@ -13,6 +13,7 @@ export type Project = {
   details: string[];
   facts: { label: string; value: string }[];
   images: ProjectImage[];
+  video?: { id: string; title: string; image: string };
 };
 
 export const RENDER_NOTE = "3D Visualisation. The completed building may differ slightly in details.";
@@ -82,5 +83,10 @@ export const PROJECTS: Project[] = [
       { file: "exterior-ramp", kind: "render", alt: "Side view of the proposed church auditorium with an access ramp" },
       { file: "exterior-stair", kind: "render", alt: "Side entrance and decorative staircase of the proposed church auditorium" },
     ],
+    video: {
+      id: "-xYvC90XCAc",
+      title: "Animated walkthrough of the proposed Deeper Life Bible Church auditorium, Sanya",
+      image: "exterior-front",
+    },
   },
 ];
