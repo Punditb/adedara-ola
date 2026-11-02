@@ -1,7 +1,7 @@
 export type ProjectImage = {
   file: string; // file name without the -small / -large ending
   alt: string;
-  kind: "render" | "ai";
+  kind: "render" | "ai" | "photo";
 };
 
 export type Project = {
@@ -13,10 +13,13 @@ export type Project = {
   details: string[];
   facts: { label: string; value: string }[];
   images: ProjectImage[];
+  progress?: ProjectImage[];
+  video?: { id: string; title: string; image: string };
 };
 
 export const RENDER_NOTE = "3D Visualisation. The completed building may differ slightly in details.";
 export const AI_NOTE = "AI-enhanced artist’s impression. The completed building may differ slightly in details.";
+export const PHOTO_NOTE = "Site photograph, September 2026.";
 
 export function imageUrl(slug: string, file: string, size: "small" | "large") {
   return `/images/projects/${slug}/${file}-${size}.webp`;
@@ -58,6 +61,12 @@ export const PROJECTS: Project[] = [
       { file: "ai-night-1", kind: "ai", alt: "AI-enhanced night view of the apartment building" },
       { file: "ai-night-2", kind: "ai", alt: "AI-enhanced night view of the apartment building from another angle" },
     ],
+    progress: [
+      { file: "progress-frame", kind: "photo", alt: "Concrete frame of the apartment building rising, with column starter bars for the next level" },
+      { file: "progress-columns-1", kind: "photo", alt: "Column formwork and reinforcement on the upper floor slab" },
+      { file: "progress-columns-2", kind: "photo", alt: "Rows of braced column formwork" },
+      { file: "progress-slab", kind: "photo", alt: "Cast floor slab with column reinforcement bars for the next level" },
+    ],
   },
   {
     slug: "church-sanya",
@@ -82,5 +91,10 @@ export const PROJECTS: Project[] = [
       { file: "exterior-ramp", kind: "render", alt: "Side view of the proposed church auditorium with an access ramp" },
       { file: "exterior-stair", kind: "render", alt: "Side entrance and decorative staircase of the proposed church auditorium" },
     ],
+    video: {
+      id: "-xYvC90XCAc",
+      title: "Animated walkthrough of the proposed Deeper Life Bible Church auditorium, Sanya",
+      image: "exterior-front",
+    },
   },
 ];

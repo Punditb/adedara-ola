@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero, CTASection } from "@/components/site/Layout";
 import { Gallery } from "@/components/site/Gallery";
-import { PROJECTS } from "@/lib/projects";
+import { PROJECTS, imageUrl } from "@/lib/projects";
+import { VideoEmbed } from "@/components/site/VideoEmbed";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -62,6 +63,22 @@ function ProjectsPage() {
               </dl>
             </div>
 
+            {project.video && (
+              <div className="mt-10">
+                <h3 className="font-display text-xl font-semibold text-navy">Watch the animated walkthrough</h3>
+                <div className="mt-4 max-w-4xl">
+                  <VideoEmbed
+                    id={project.video.id}
+                    title={project.video.title}
+                    poster={imageUrl(project.slug, project.video.image, "large")}
+                  />
+                </div>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  3D Visualisation. The completed building may differ slightly in details.
+                </p>
+              </div>
+            )}
+
             <div className="mt-10">
               <Gallery slug={project.slug} images={project.images} />
               <p className="mt-4 text-xs text-muted-foreground">
@@ -70,6 +87,15 @@ function ProjectsPage() {
                   " Images marked “AI-enhanced” are artist’s impressions."}
               </p>
             </div>
+            {project.progress && project.progress.length > 0 && (
+              <div className="mt-12">
+                <h3 className="font-display text-xl font-semibold text-navy">Site progress, September 2026</h3>
+                <p className="mt-2 text-sm text-muted-foreground">Photographs from the site as the structure rises.</p>
+                <div className="mt-5">
+                  <Gallery slug={project.slug} images={project.progress} uniform />
+                </div>
+              </div>
+            )}
           </div>
         </section>
       ))}

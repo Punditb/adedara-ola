@@ -1,10 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { AI_NOTE, RENDER_NOTE, imageUrl, type ProjectImage } from "@/lib/projects";
+import { AI_NOTE, PHOTO_NOTE, RENDER_NOTE, imageUrl, type ProjectImage } from "@/lib/projects";
 
-const CHIP = { render: "3D Visualisation", ai: "AI-enhanced artist’s impression" } as const;
+const CHIP = {
+  render: "3D Visualisation",
+  ai: "AI-enhanced artist’s impression",
+  photo: "Site photo · Sept 2026",
+} as const;
 
-export function Gallery({ slug, images }: { slug: string; images: ProjectImage[] }) {
+export function Gallery({
+  slug,
+  images,
+  uniform = false,
+}: {
+  slug: string;
+  images: ProjectImage[];
+  uniform?: boolean;
+}) {
   const [open, setOpen] = useState<number | null>(null);
 
   const close = useCallback(() => setOpen(null), []);
@@ -31,10 +43,12 @@ export function Gallery({ slug, images }: { slug: string; images: ProjectImage[]
   }, [open, close, step]);
 
   const current = open === null ? null : images[open];
+  const noteFor = (kind: ProjectImage["kind"]) =>
+    kind === "ai" ? AI_NOTE : kind === "photo" ? PHOTO_NOTE : RENDER_NOTE;
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+      <div className={`grid grid-cols-2 gap-3 ${uniform ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
         {images.map((image, index) => (
           <button
             key={image.file}
@@ -42,7 +56,7 @@ export function Gallery({ slug, images }: { slug: string; images: ProjectImage[]
             onClick={() => setOpen(index)}
             aria-label={`Open image: ${image.alt}`}
             className={`group relative block overflow-hidden rounded-xl bg-muted ${
-              index === 0 ? "col-span-2 row-span-2" : "aspect-[4/3]"
+              index === 0 && !uniform ? "col-span-2 row-span-2" : "aspect-[4/3]"
             }`}
           >
             <img
@@ -105,7 +119,7 @@ export function Gallery({ slug, images }: { slug: string; images: ProjectImage[]
             onClick={(e) => e.stopPropagation()}
           />
           <p className="mt-4 max-w-2xl text-center text-sm text-white/80" onClick={(e) => e.stopPropagation()}>
-            {current.kind === "ai" ? AI_NOTE : RENDER_NOTE}
+            {noteFor(current.kind)}
           </p>
           <p className="mt-1 text-xs text-white/50">
             {(open ?? 0) + 1} / {images.length}
