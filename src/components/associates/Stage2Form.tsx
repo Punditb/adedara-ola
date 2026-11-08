@@ -264,7 +264,7 @@ export function Stage2Form({ token }: { token: string }) {
 
         <button
           disabled={sending}
-          className="w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-navy disabled:cursor-not-allowed disabled:opacity-60"
         >
           {sending ? "Please wait..." : "Submit Stage 2 application"}
         </button>

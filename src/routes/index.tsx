@@ -191,7 +191,7 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/book-consultation"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-primary/90 transition-all"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-navy transition-all"
             >
               Book Consultation <ArrowRight className="h-4 w-4" />
             </Link>
@@ -465,7 +465,7 @@ function AssociatesBand() {
         <div className="lg:text-right">
           <a
             href="/associates"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-primary/90 transition-all"
+            className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-navy transition-all"
           >
             Become an Associate <ArrowRight className="h-4 w-4" />
           </a>
@@ -484,7 +484,7 @@ function CorporateFramework() {
     <section data-reveal className="bg-[var(--navy)] text-white py-20 md:py-28">
       <div className="container-x grid gap-10 lg:grid-cols-[1.3fr,1fr] items-center">
         <div>
-          <span className="eyebrow text-primary">Our Vision</span>
+          <span className="eyebrow text-sky-soft">Our Vision</span>
           <h2 className="mt-3 text-white text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
             One Platform. One Standard. Endless Possibilities.
           </h2>
@@ -492,13 +492,13 @@ function CorporateFramework() {
             Our vision is to become Africa’s premier platform-institution, where real estate practitioners can work
             effectively and efficiently, and clients can build with confidence.
           </p>
-          <Link to="/about" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary hover:gap-3 transition-all">
+          <Link to="/about" className="mt-8 inline-flex items-center gap-2 font-semibold text-sky-soft hover:gap-3 transition-all">
             Read our full vision, mission and objectives <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-4">
           {values.map((v) => (
-            <div key={v} className="rounded-lg bg-primary/10 border border-primary/30 px-5 py-6 text-center">
+            <div key={v} className="  rounded-lg bg-white/5 border border-white/15 px-5 py-6 text-center">
               <p className="font-display text-white text-xl font-semibold">{v}</p>
             </div>
           ))}

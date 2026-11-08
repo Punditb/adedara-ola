@@ -36,6 +36,9 @@ export function Header() {
 
   useEffect(() => setOpen(false), [location.pathname]);
 
+  const isActive = (to: string) =>
+    to === "/" ? location.pathname === "/" : location.pathname === to || location.pathname.startsWith(`${to}/`);
+
   return (
     <header
       className={`sticky top-0 z-50 w-full bg-background/90 backdrop-blur-md border-b border-border transition-all ${
@@ -55,16 +58,16 @@ export function Header() {
 
         <nav className="hidden lg:flex flex-1 items-center justify-center gap-8" aria-label="Primary">
           {NAV.map((item) => {
-            const active =
-              item.to === "/"
-                ? location.pathname === "/"
-                : location.pathname.startsWith(item.to);
+            const active = isActive(item.to);
             return (
               <Link
                 key={item.to}
                 to={item.to}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  active ? "text-primary" : "text-secondary"
+                aria-current={active ? "page" : undefined}
+                className={`relative py-1.5 text-sm font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:rounded-full after:bg-sky after:transition-transform after:duration-300 ${
+                  active
+                    ? "text-navy after:scale-x-100"
+                    : "text-secondary hover:text-navy after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
                 {item.label}
@@ -76,7 +79,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             to="/book-consultation"
-            className="hidden sm:inline-flex shrink-0 whitespace-nowrap items-center justify-center rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-all"
+            className="hidden sm:inline-flex shrink-0 whitespace-nowrap items-center justify-center rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-navy transition-colors"
           >
             Book Consultation
           </Link>
@@ -94,18 +97,26 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t border-border bg-background">
           <nav className="container-x py-4 flex flex-col gap-1" aria-label="Mobile">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="rounded-md px-3 py-2.5 text-sm font-medium text-secondary hover:bg-muted hover:text-primary"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) => {
+              const active = isActive(item.to);
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  aria-current={active ? "page" : undefined}
+                  className={`rounded-md border-l-4 px-3 py-2.5 text-sm font-medium transition-colors ${
+                    active
+                      ? "border-sky bg-muted text-navy"
+                      : "border-transparent text-secondary hover:bg-muted hover:text-navy"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <Link
               to="/book-consultation"
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
+              className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-navy transition-colors"
             >
               Book Consultation
             </Link>

@@ -95,7 +95,7 @@ export function Stage1Form() {
 
           <button
             disabled={sending}
-            className="w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
+            className="w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-navy disabled:cursor-not-allowed disabled:opacity-60"
           >
             {sending ? "Submitting..." : "Submit Stage 1 application"}
           </button>

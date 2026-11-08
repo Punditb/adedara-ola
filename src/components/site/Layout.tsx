@@ -96,7 +96,7 @@ export function CTASection() {
     <section className="bg-[var(--navy)] text-white">
       <div className="container-x py-16 md:py-20 grid md:grid-cols-[1.4fr,1fr] gap-10 items-center">
         <div>
-          <span className="eyebrow text-primary">Let's Build Together</span>
+          <span className="eyebrow text-sky-soft">Let's Build Together</span>
           <h2 className="mt-3 text-white text-3xl md:text-4xl font-bold leading-tight">
             Ready to Bring Your Real Estate Vision to Life?
           </h2>
@@ -108,7 +108,7 @@ export function CTASection() {
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:items-stretch">
           <a
             href="/book-consultation"
-            className="rounded-md bg-primary px-6 py-3.5 text-center font-semibold text-primary-foreground hover:bg-primary/90"
+            className="rounded-md bg-white px-6 py-3.5 text-center font-semibold text-navy transition-colors hover:bg-sky-soft"
           >
             Book Consultation
           </a>

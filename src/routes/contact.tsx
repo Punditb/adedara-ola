@@ -172,7 +172,7 @@ function ContactForm() {
 
           <button
             disabled={sending}
-            className="w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:bg-navy disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {sending ? "Sending..." : "Send message"}
           </button>
