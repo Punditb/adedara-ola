@@ -235,7 +235,7 @@ function InsightDetailPage() {
                 </p>
                 <Link
                   to="/book-consultation"
-                  className="mt-5 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+                  className="mt-5 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-navy"
                 >
                   Book Consultation
                 </Link>

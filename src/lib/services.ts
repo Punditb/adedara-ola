@@ -172,19 +172,19 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     relatedTags: ["Construction", "Real Estate Development"],
     photos: [
       {
-        project: "apartment-oshodi",
+        project: "melon-akowonjo",
         file: "progress-frame",
         alt: "Concrete frame of the apartment building rising",
-        caption: "The concrete frame rising on our Oshodi development",
+        caption: "The concrete frame of The MELON Apartments rising",
       },
       {
-        project: "apartment-oshodi",
+        project: "melon-akowonjo",
         file: "progress-columns-1",
         alt: "Column formwork and reinforcement on the upper floor slab",
         caption: "Column formwork and reinforcement on an upper floor",
       },
       {
-        project: "apartment-oshodi",
+        project: "melon-akowonjo",
         file: "progress-slab",
         alt: "Cast floor slab with column reinforcement bars for the next level",
         caption: "A cast slab, with column reinforcement ready for the next level",

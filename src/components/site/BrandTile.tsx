@@ -12,7 +12,7 @@ const TAG_ICONS: Record<string, ComponentType<{ className?: string }>> = {
 };
 
 const TILE_BACKGROUND =
-  "radial-gradient(circle at 90% 0%, color-mix(in oklab, var(--primary) 40%, transparent) 0%, transparent 55%), linear-gradient(135deg, var(--navy), var(--secondary))";
+  "radial-gradient(circle at 90% 0%, color-mix(in oklab, var(--sky) 40%, transparent) 0%, transparent 55%), linear-gradient(135deg, var(--navy), #134C8C)";
 
 // Used where an article photo used to be. The parent must be "relative" and have a fixed shape.
 export function ArticleTile({ tag, large = false }: { tag: string; large?: boolean }) {
@@ -64,7 +64,7 @@ export function AboutPanel() {
         <ul className="mt-4 space-y-2.5">
           {FACTS.map((fact) => (
             <li key={fact} className="flex items-start gap-3 text-sm md:text-base">
-              <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-sky-soft" />
               <span>{fact}</span>
             </li>
           ))}

@@ -11,7 +11,7 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "See our first major development, a 17-unit apartment building in Oshodi, Lagos, and a proposed church auditorium in Sanya, designed and planned by Adedara Ola & Co.",
+          "See our projects: The MELON Apartments in Akowonjo, a 17-unit apartment building in Oshodi, and a proposed church auditorium in Sanya, from Adedara Ola & Co.",
       },
       { property: "og:title", content: "Projects | Adedara Ola & Co." },
       { property: "og:url", content: "/projects" },
@@ -27,7 +27,7 @@ function ProjectsPage() {
       <PageHero
         eyebrow="Our Projects"
         title="Projects That Show How We Work"
-        subtitle="Our first major development and a proposed institutional building, from concept and design through to construction."
+        subtitle="Apartments under construction and a proposed institutional building, from concept and design through to construction."
       />
 
       {PROJECTS.map((project, index) => (

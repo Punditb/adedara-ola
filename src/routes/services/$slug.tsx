@@ -54,7 +54,7 @@ function ServiceDetailPage() {
           ))}
           <Link
             to="/book-consultation"
-            className="mt-8 inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-primary/90 transition-all"
+            className="mt-8 inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:bg-navy transition-all"
           >
             Book a Free Consultation <ArrowRight className="h-4 w-4" />
           </Link>
@@ -112,7 +112,7 @@ function ServiceDetailPage() {
           </div>
           <Link
             to="/projects"
-            hash="apartment-oshodi"
+            hash="melon-akowonjo"
             className="mt-8 inline-flex items-center gap-2 font-semibold text-primary hover:gap-3 transition-all"
           >
             See the full project <ArrowRight className="h-4 w-4" />

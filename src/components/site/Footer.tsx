@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoWhite from "@/assets/logo-white.png";
 import { PAGE_VISIBLE } from "@/lib/site-config";
 
 export function Footer() {
@@ -48,8 +48,8 @@ export function Footer() {
     <footer className="bg-[var(--navy)] text-white/80 mt-24">
       <div className="container-x py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
-          <div className="bg-white inline-block rounded-md p-3">
-            <img src={logo} alt="Adedara Ola & Co." className="h-12 w-auto" />
+          <div>
+            <img src={logoWhite} alt="Adedara Ola & Co." className="h-12 w-auto" />
           </div>
           <p className="mt-5 text-sm leading-relaxed max-w-sm">
             Adedara Ola & Co. — Real estate developers, project planners, property
@@ -65,11 +65,11 @@ export function Footer() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email"
-              className="flex-1 rounded-md bg-white/10 border border-white/15 px-3 py-2.5 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-primary"
+              className="flex-1 rounded-md bg-white/10 border border-white/15 px-3 py-2.5 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-sky-soft"
             />
             <button
               disabled={subscribing}
-              className="rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="rounded-md   bg-sky-soft px-4 py-2.5 text-sm font-semibold text-navy hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {subscribing ? "Subscribing..." : "Get Updates"}
             </button>
@@ -104,17 +104,17 @@ export function Footer() {
           </h4>
           <ul className="space-y-3 text-sm">
             <li className="flex gap-3">
-              <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
+              <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-sky-soft" />
               <span>42, Ola Street, Itire, Surulere, Lagos, Nigeria</span>
             </li>
             <li className="flex gap-3">
-              <Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
+              <Phone className="h-4 w-4 mt-0.5 shrink-0 text-sky-soft" />
               <span>
                 <a href="tel:+2347038088610" className="block hover:text-white">+234 703 808 8610</a>
               </span>
             </li>
             <li className="flex gap-3">
-              <Mail className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
+              <Mail className="h-4 w-4 mt-0.5 shrink-0 text-sky-soft" />
               <span>
                 <a href="mailto:info@adedaraolaandco.com" className="block hover:text-white text-xs">info@adedaraolaandco.com</a>
               </span>

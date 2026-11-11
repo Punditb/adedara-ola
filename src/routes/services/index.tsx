@@ -346,7 +346,7 @@ function ServiceBlock({ service, reverse }: { service: (typeof SERVICES)[number]
           </div>
         </div>
 
-        <a href="/contact" className="mt-8 inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary/90">
+        <a href="/contact" className="mt-8 inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-navy">
           Discuss your project
         </a>
       </div>
