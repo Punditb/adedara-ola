@@ -112,7 +112,7 @@ function ServiceDetailPage() {
           </div>
           <Link
             to="/projects"
-            hash="apartment-oshodi"
+            hash="melon-akowonjo"
             className="mt-8 inline-flex items-center gap-2 font-semibold text-primary hover:gap-3 transition-all"
           >
             See the full project <ArrowRight className="h-4 w-4" />

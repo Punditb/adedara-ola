@@ -222,8 +222,8 @@ function Hero() {
         <div className="relative">
           <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-card)] aspect-[5/6]">
             <img
-              src="/images/projects/apartment-oshodi/exterior-dusk-large.webp"
-              alt="Dusk view of our 17-unit apartment building in Oshodi, Lagos"
+              src="/images/projects/melon-akowonjo/exterior-dusk-large.webp"
+              alt="Dusk view of The MELON Apartments in Akowonjo, Lagos"
               className="absolute inset-0 h-full w-full object-cover"
               fetchPriority="high"
             />
@@ -232,7 +232,7 @@ function Hero() {
               <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] backdrop-blur">
                 Under construction
               </span>
-              <p className="mt-2 font-display text-lg font-semibold leading-snug">17-Unit Apartment Building, Oshodi</p>
+              <p className="mt-2 font-display text-lg font-semibold leading-snug">The MELON Apartments, Akowonjo</p>
               <p className="text-xs text-white/75">
                 3D Visualisation. The completed building may differ slightly in details.
               </p>
@@ -347,7 +347,7 @@ function OurWork() {
         </Link>
       </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((project) => (
           <Link
             key={project.slug}
