@@ -15,9 +15,11 @@ import { Route as BookConsultationRouteImport } from './routes/book-consultation
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as InvestorsRouteImport } from './routes/investors'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as PropertiesRouteImport } from './routes/properties'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AssociatesIndexRouteImport } from './routes/associates/index'
 import { Route as AssociatesStage2RouteImport } from './routes/associates/stage-2'
 import { Route as InsightsIndexRouteImport } from './routes/insights/index'
@@ -55,6 +57,11 @@ const InvestorsRoute = InvestorsRouteImport.update({
   path: '/investors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
@@ -68,6 +75,11 @@ const PropertiesRoute = PropertiesRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AssociatesIndexRoute = AssociatesIndexRouteImport.update({
@@ -108,9 +120,11 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRouteWithChildren
   '/investors': typeof InvestorsRoute
+  '/privacy': typeof PrivacyRoute
   '/projects': typeof ProjectsRoute
   '/properties': typeof PropertiesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/associates/stage-2': typeof AssociatesStage2Route
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -124,9 +138,11 @@ export interface FileRoutesByTo {
   '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
   '/investors': typeof InvestorsRoute
+  '/privacy': typeof PrivacyRoute
   '/projects': typeof ProjectsRoute
   '/properties': typeof PropertiesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/associates/stage-2': typeof AssociatesStage2Route
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -142,9 +158,11 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRouteWithChildren
   '/investors': typeof InvestorsRoute
+  '/privacy': typeof PrivacyRoute
   '/projects': typeof ProjectsRoute
   '/properties': typeof PropertiesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/associates/stage-2': typeof AssociatesStage2Route
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -161,9 +179,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/insights'
     | '/investors'
+    | '/privacy'
     | '/projects'
     | '/properties'
     | '/sitemap.xml'
+    | '/terms'
     | '/associates/stage-2'
     | '/insights/$slug'
     | '/services/$slug'
@@ -177,9 +197,11 @@ export interface FileRouteTypes {
     | '/book-consultation'
     | '/contact'
     | '/investors'
+    | '/privacy'
     | '/projects'
     | '/properties'
     | '/sitemap.xml'
+    | '/terms'
     | '/associates/stage-2'
     | '/insights/$slug'
     | '/services/$slug'
@@ -194,9 +216,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/insights'
     | '/investors'
+    | '/privacy'
     | '/projects'
     | '/properties'
     | '/sitemap.xml'
+    | '/terms'
     | '/associates/stage-2'
     | '/insights/$slug'
     | '/services/$slug'
@@ -212,9 +236,11 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   InsightsRoute: typeof InsightsRouteWithChildren
   InvestorsRoute: typeof InvestorsRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProjectsRoute: typeof ProjectsRoute
   PropertiesRoute: typeof PropertiesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   AssociatesStage2Route: typeof AssociatesStage2Route
   ServicesSlugRoute: typeof ServicesSlugRoute
   AssociatesIndexRoute: typeof AssociatesIndexRoute
@@ -265,6 +291,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InvestorsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects': {
       id: '/projects'
       path: '/projects'
@@ -284,6 +317,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/associates/': {
@@ -352,9 +392,11 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   InsightsRoute: InsightsRouteWithChildren,
   InvestorsRoute: InvestorsRoute,
+  PrivacyRoute: PrivacyRoute,
   ProjectsRoute: ProjectsRoute,
   PropertiesRoute: PropertiesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   AssociatesStage2Route: AssociatesStage2Route,
   ServicesSlugRoute: ServicesSlugRoute,
   AssociatesIndexRoute: AssociatesIndexRoute,

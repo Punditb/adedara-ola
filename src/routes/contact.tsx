@@ -176,6 +176,10 @@ function ContactForm() {
           >
             {sending ? "Sending..." : "Send message"}
           </button>
+          <p className="text-xs text-muted-foreground">
+            By sending this message you agree to our{" "}
+            <a href="/privacy" className="font-semibold text-primary underline">Privacy Policy</a>.
+          </p>
         </>
       )}
     </form>
