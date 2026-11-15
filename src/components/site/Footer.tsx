@@ -74,6 +74,10 @@ export function Footer() {
               {subscribing ? "Subscribing..." : "Get Updates"}
             </button>
           </form>
+          <p className="mt-2 text-xs text-white/60">
+            By subscribing you agree to receive our updates and to our{" "}
+            <a href="/privacy" className="underline hover:text-white">Privacy Policy</a>. You can unsubscribe at any time.
+          </p>
 
           {subscribeMessage && (
             <p className="mt-2 text-xs text-white/70">{subscribeMessage}</p>
@@ -126,6 +130,10 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/60">
           <p>© {new Date().getFullYear()} Adedara Ola & Co. · RC 7192962 · All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white">Terms of Use</Link>
+          </div>
         </div>
       </div>
     </footer>
